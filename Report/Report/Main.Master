@@ -1,0 +1,56 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="Report.Main" %>
+<connectionStrings>
+	  <add name="DefaultConnection" connectionString="Data Source=.\SQLEXPRESS;Initial Catalog=Project;Integrated Security=True;"/>
+    <add name="DefaultConnectionString" connectionString="data source=localhost\SQLEXPRESS;initial catalog=Project;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework" providerName="System.Data.SqlClient" />
+  </connectionStrings>
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script src="Script/jquery-3.6.0.min.js"></script>
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <script src="js/bootstrap.js"></script>
+    <style>
+       .Login{
+           position:absolute;
+           top:0px;
+           right:0px;
+       }
+        li:hover{
+            background-color:black;
+        }
+   </style>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body style="background-color: antiquewhite">
+    <form id="form1" runat="server">
+        <table class="container-fluid">
+            <tr style="background-color: #ffc80c">
+                <td align="center">
+                    <asp:ImageButton ID="imgBtnLogo" runat="server" ImageUrl="image/logo.jpg" Width="200" Height="200"   OnClick="imgBtnLogo_Click"/>
+                </td>
+            </tr>
+        </table>
+
+        <ul class="nav nav-pills nav-fill bg-dark">
+            <li class="nav-item">
+                <a href="#" class="nav-link text-white">商品訂購</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link text-white">訂單紀錄</a>
+            </li>
+        </ul>
+
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <div class="Login">
+            <asp:ImageButton ID="imgBtnLogin" runat="server" ImageUrl="image/login.png" Width="35" Height="35"  OnClick="imgBtnLogin_Click"/>
+        </div>
+    </form>
+</body>
+</html>
