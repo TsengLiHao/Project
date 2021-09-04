@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:GridView ID="gvAdminList" runat="server" AutoGenerateColumns="False" align="center" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" >
+    <asp:GridView ID="gvAdminList" runat="server" AutoGenerateColumns="False" align="center" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" >
             <Columns>
                 <asp:TemplateField HeaderText="等級">
                     <ItemTemplate>
@@ -12,20 +12,19 @@
                 <asp:BoundField DataField="AdminName" HeaderText="使用者" />
                 <asp:BoundField DataField="AdminAccount" HeaderText="帳號" />
             </Columns>
-            <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
-            <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
-            <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
-            <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
-            <SortedAscendingCellStyle BackColor="#F7F7F7" />
-            <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
-            <SortedDescendingCellStyle BackColor="#E5E5E5" />
-            <SortedDescendingHeaderStyle BackColor="#242121" />
+            <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
+            <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />
+            <PagerStyle ForeColor="#8C4510" HorizontalAlign="Center" />
+            <RowStyle BackColor="#FFF7E7" ForeColor="#8C4510" />
+            <SelectedRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="White" />
+            <SortedAscendingCellStyle BackColor="#FFF1D4" />
+            <SortedAscendingHeaderStyle BackColor="#B95C30" />
+            <SortedDescendingCellStyle BackColor="#F1E5CE" />
+            <SortedDescendingHeaderStyle BackColor="#93451F" />
             </asp:GridView>
         <br />
         <div align="center">
             <asp:Button ID="btnEdit" runat="server" Text="編輯管理者資訊" OnClick="btnEdit_Click"/>
-            &emsp;
-            <asp:Button ID="btnMemberList" runat="server" Text="會員資訊" OnClick="btnMemberList_Click"/>
             &emsp;
             <asp:Button ID="btnLogout" runat="server" Text="登出" OnClick="btnLogout_Click" />
         </div>

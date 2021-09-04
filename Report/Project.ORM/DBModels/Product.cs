@@ -14,20 +14,22 @@ namespace Project.ORM.DBModels
         [StringLength(50)]
         public string ProductName { get; set; }
 
-        public int UnitPrice { get; set; }
+        public decimal UnitPrice { get; set; }
 
-        [Required]
         [StringLength(50)]
         public string Body { get; set; }
 
-        public int WeightPerUnit { get; set; }
+        public decimal WeightPerUnit { get; set; }
 
-        public bool Discontinued { get; set; }
+        public int Discontinued { get; set; }
 
         [Column(TypeName = "date")]
         public DateTime ManufactureDate { get; set; }
 
         [Column(TypeName = "date")]
-        public DateTime? ExpirationDate { get; set; }
+        public DateTime ExpirationDate { get; set; }
+
+        [StringLength(50)]
+        public string Photo { get; set; }
     }
 }

@@ -6,21 +6,21 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace Report.SystemAdmin
+namespace Report.SystemProduct
 {
-    public partial class MemberList : System.Web.UI.Page
+    public partial class ProductList : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (this.Session["AdminInfo"] != null)
-            {
-                this.gvMemberList.DataSource = MemberManager.GetAllMemberList();
-                this.gvMemberList.DataBind();
-            }
-            else
+            if (this.Session["AdminInfo"] == null)
             {
                 Response.Redirect("/Login.aspx");
             }
+
+            var productList = ProductManager.GetProductList();
+
+            gvProductList.DataSource = productList;
+            gvProductList.DataBind();
         }
 
         protected void btnBack_Click(object sender, EventArgs e)

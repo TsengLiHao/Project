@@ -11,20 +11,11 @@
            display:inline-block;
            width:100px;
         }
-        #divText{
-            position:absolute;
-            left:350px;
-        }
-        #divButton{
-           position:absolute;
-           bottom:200px;
-           left:570px;
-        }
     </style>
     
         <h1 align="center">Edit Password</h1>
         <br />
-        <div id="divText">
+        <div id="divText" align="center">
             <asp:Label ID="Label1" runat="server" CssClass="lbl" Text="帳號:"></asp:Label>
             <asp:TextBox ID="txtAccount" runat="server" CssClass="txt"></asp:TextBox><br />
             <asp:Label ID="Label2" runat="server" CssClass="lbl" Text="舊密碼:"></asp:Label>
@@ -35,7 +26,7 @@
             <asp:TextBox ID="txtDoubleCheck" runat="server" CssClass="txt" TextMode="Password"></asp:TextBox><br />
         </div>
             <br />
-        <div id="divButton">
+        <div id="divButton" align="center">
             <asp:Literal ID="ltlMsg" runat="server"></asp:Literal>
             <br />
             <asp:Button ID="btnConfirm" runat="server" Text="確認修改" OnClick="btnConfirm_Click"/>

@@ -11,25 +11,16 @@
            display:inline-block;
            width:100px;
         }
-        #divText{
-            position:absolute;
-            left:350px;
-        }
-        #divButton{
-           position:absolute;
-           bottom:90px;
-           left:570px;
-        }
     </style>
     
         <h1 align="center">Edit Information Of Member</h1>
         <br />
-        <div id="divText">
+        <div id="divText" align="center">
             <asp:Label ID="Label5" runat="server" CssClass="lbl" Text="帳號:"></asp:Label>
             <asp:TextBox ID="txtAccount" runat="server" CssClass="txt" Enabled="false"></asp:TextBox>
             <br />
             <asp:Label ID="Label1" runat="server" CssClass="lbl" Text="姓名:"></asp:Label>
-            <asp:TextBox ID="txtName" runat="server" CssClass="txt" Enabled="false"></asp:TextBox>
+            <asp:TextBox ID="txtName" runat="server" CssClass="txt"></asp:TextBox>
             <br />
             <asp:Label ID="Label2" runat="server" CssClass="lbl" Text="地址:"></asp:Label>
             <asp:TextBox ID="txtAdress" runat="server" CssClass="txt"></asp:TextBox>
@@ -48,7 +39,7 @@
             <br />
         </div>
             <br />
-        <div id="divButton">
+        <div id="divButton" align="center">
             <asp:Literal ID="ltlMsg" runat="server"></asp:Literal>
             <br />
             <asp:Button ID="btnConfirm" runat="server" Text="確認修改" OnClick="btnConfirm_Click"/>

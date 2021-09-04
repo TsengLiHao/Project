@@ -7,21 +7,21 @@
 // </自動產生的>
 //------------------------------------------------------------------------------
 
-namespace Report.SystemMember
+namespace Report.SystemAdmin
 {
 
 
-    public partial class Member
+    public partial class AllOrderRecord
     {
 
         /// <summary>
-        /// gvMemberList 控制項。
+        /// gvOrderList 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvMemberList;
+        protected global::System.Web.UI.WebControls.GridView gvOrderList;
 
         /// <summary>
         /// ltlMsg 控制項。
@@ -33,21 +33,12 @@ namespace Report.SystemMember
         protected global::System.Web.UI.WebControls.Literal ltlMsg;
 
         /// <summary>
-        /// btnEdit 控制項。
+        /// btnBack 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnEdit;
-
-        /// <summary>
-        /// btnLogout 控制項。
-        /// </summary>
-        /// <remarks>
-        /// 自動產生的欄位。
-        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnLogout;
+        protected global::System.Web.UI.WebControls.Button btnBack;
     }
 }

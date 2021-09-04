@@ -21,19 +21,19 @@ namespace Project.ORM.DBModels
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<AdminInfo>()
-                .Property(e => e.AdminName)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<AdminInfo>()
                 .Property(e => e.AdminAccount)
                 .IsUnicode(false);
 
             modelBuilder.Entity<MemberInfo>()
-                .Property(e => e.MemberName)
+                .Property(e => e.Account)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<MemberInfo>()
+            modelBuilder.Entity<Order>()
                 .Property(e => e.Account)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Product>()
+                .Property(e => e.Photo)
                 .IsUnicode(false);
         }
     }

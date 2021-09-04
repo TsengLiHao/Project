@@ -33,5 +33,15 @@ namespace Report
         {
             Response.Redirect("/Default.aspx");
         }
+
+        protected void btnPrdList_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/SystemOrder/OrderPage.aspx");
+        }
+
+        protected void btnOrderList_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/SystemOrder/OrderRecord.aspx"); 
+        }
     }
 }

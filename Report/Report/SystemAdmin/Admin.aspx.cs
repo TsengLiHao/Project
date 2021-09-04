@@ -43,12 +43,6 @@ namespace Report.SystemAdmin
         {
 
         }
-
-        protected void btnMemberList_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("/SystemAdmin/MemberList.aspx");
-        }
-
         protected void btnLogout_Click(object sender, EventArgs e)
         {
             this.Session["AdminInfo"] = null;

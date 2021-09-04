@@ -3,6 +3,7 @@
 	  <add name="DefaultConnection" connectionString="Data Source=.\SQLEXPRESS;Initial Catalog=Project;Integrated Security=True;"/>
     <add name="DefaultConnectionString" connectionString="data source=localhost\SQLEXPRESS;initial catalog=Project;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework" providerName="System.Data.SqlClient" />
   </connectionStrings>
+<authentication mode="Forms"></authentication>
 <!DOCTYPE html>
 
 <html>
@@ -37,12 +38,13 @@
 
         <ul class="nav nav-pills nav-fill bg-dark">
             <li class="nav-item">
-                <a href="#" class="nav-link text-white">商品訂購</a>
+                <asp:Button ID="btnPrdList" runat="server" class="nav-link text-white" Text="商品訂購" OnClick="btnPrdList_Click" />
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link text-white">訂單紀錄</a>
+                <asp:Button ID="btnOrderList" runat="server" class="nav-link text-white" Text="訂單紀錄" OnClick="btnOrderList_Click"/>
             </li>
         </ul>
+        <br />
 
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">

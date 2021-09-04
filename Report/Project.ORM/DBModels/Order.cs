@@ -12,15 +12,23 @@ namespace Project.ORM.DBModels
 
         [Required]
         [StringLength(50)]
+        public string MemberName { get; set; }
+
+        [Required]
+        [StringLength(50)]
+        public string Account { get; set; }
+
+        [Required]
+        [StringLength(50)]
         public string ProductName { get; set; }
 
-        public int UnitPrice { get; set; }
-
-        public int Payment { get; set; }
-
-        public Guid MemberID { get; set; }
+        public decimal UnitPrice { get; set; }
 
         public int OrderedQuantity { get; set; }
+
+        [Required]
+        [StringLength(50)]
+        public string Payment { get; set; }
 
         public DateTime OrderDate { get; set; }
 

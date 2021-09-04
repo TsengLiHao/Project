@@ -11,7 +11,33 @@ namespace Report
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if(this.Session["AdminInfo"] != null)
+            {
+                this.btnMemberInfo.Visible = true;
+                this.btnOrderList.Visible = true;
+                this.btnProduct.Visible = true;
+                this.btnEditProduct.Visible = true;
+            }
+        }
 
+        protected void btnProduct_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/SystemAdmin/AddProduct.aspx");
+        }
+
+        protected void btnMemberInfo_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/SystemAdmin/MemberList.aspx");
+        }
+
+        protected void btnOrderList_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/SystemOrder/AllOrderRecord.aspx");
+        }
+
+        protected void btnEditProduct_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/SystemProduct/ProductList.aspx");
         }
     }
 }

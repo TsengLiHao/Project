@@ -8,18 +8,29 @@ using System.Web.UI.WebControls;
 
 namespace Report.SystemAdmin
 {
-    public partial class MemberList : System.Web.UI.Page
+    public partial class AllOrderRecord : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             if (this.Session["AdminInfo"] != null)
             {
-                this.gvMemberList.DataSource = MemberManager.GetAllMemberList();
-                this.gvMemberList.DataBind();
+                var AllOrderInfo = OrderManager.GetAllOrderList();
+
+                if (AllOrderInfo.Count > 0)
+                {
+                    this.gvOrderList.DataSource = AllOrderInfo;
+                    this.gvOrderList.DataBind();
+                }
+                else
+                {
+                    this.ltlMsg.Text = "No Record";
+                    return;
+                }
             }
             else
             {
-                Response.Redirect("/Login.aspx");
+                Response.Redirect("/Default.aspx");
+                return;
             }
         }
 

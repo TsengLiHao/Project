@@ -2,86 +2,60 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div align="center">
-        <h2>新鮮起司（Fresh Cheese）</h2>
-    </div>
-    <div align="center">
-        <input type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-image: url(image/logo.jpg); border: none; width: 200px; height: 200px; background-size: 100%">
-        &emsp;
-        <input type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-image: url(image/logo.jpg); border: none; width: 200px; height: 200px; background-size: 100%">
-    </div>
-    
-
-    <div align="center">
-        <h2>水洗式起司 (Washed Rind Cheese)</h2>
-    </div>
-    <div align="center">
-        <input type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-image: url(image/logo.jpg); border: none; width: 200px; height: 200px; background-size: 100%">
-        &emsp;
-        <input type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-image: url(image/logo.jpg); border: none; width: 200px; height: 200px; background-size: 100%">
-    </div>
-
-    <div align="center">
-        <h2>白黴起司 (White Mould Cheese)</h2>
-    </div>
-    <div align="center">
-        <input type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-image: url(image/logo.jpg); border: none; width: 200px; height: 200px; background-size: 100%">
-        &emsp;
-        <input type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-image: url(image/logo.jpg); border: none; width: 200px; height: 200px; background-size: 100%">
-    </div>
-
-    <div align="center">
-        <h2>半硬質起司（Semi-Hard Cheese）</h2>
-    </div>
-    <div align="center">
-        <input type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-image: url(image/logo.jpg); border: none; width: 200px; height: 200px; background-size: 100%">
-        &emsp;
-        <input type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-image: url(image/logo.jpg); border: none; width: 200px; height: 200px; background-size: 100%">
-    </div>
-
-    <div align="center">
-        <h2>硬質起司（Hard Cheeses）</h2>
-    </div>
-    <div align="center">
-        <input type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-image: url(image/logo.jpg); border: none; width: 200px; height: 200px; background-size: 100%">
-        &emsp;
-        <input type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-image: url(image/logo.jpg); border: none; width: 200px; height: 200px; background-size: 100%">
-    </div>
-
-    <div align="center">
-        <h2>羊奶起司 (Chever Cheese)</h2>
-    </div>
-    <div align="center">
-        <input type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-image: url(image/logo.jpg); border: none; width: 200px; height: 200px; background-size: 100%">
-        &emsp;
-        <input type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-image: url(image/logo.jpg); border: none; width: 200px; height: 200px; background-size: 100%">
-    </div>
-
-    <div align="center">
-        <h2>藍紋起司（Blue-Vein Cheese）</h2>
-    </div>
-    <div align="center">
-        <input type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-image: url(image/logo.jpg); border: none; width: 200px; height: 200px; background-size: 100%">
-        &emsp;
-        <input type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" style="background-image: url(image/logo.jpg); border: none; width: 200px; height: 200px; background-size: 100%">
-    </div>
-
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">莫札瑞拉（Mozzarella）</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <table align="left">
+        <tr>
+            <td>
+                <asp:Button ID="btnProduct" runat="server" Text="新增商品" Visible="false" OnClick="btnProduct_Click"/>
+                <br />
+                <br />
+                <asp:Button ID="btnEditProduct" runat="server" Text="編輯商品資訊" Visible="false" OnClick="btnEditProduct_Click"/>
+                <br />
+                <br />
+                <asp:Button ID="btnMemberInfo" runat="server" Text="編輯會員資訊" Visible="false" OnClick="btnMemberInfo_Click"/>
+                <br />
+                <br />
+                <asp:Button ID="btnOrderList" runat="server" Text="編輯訂單" Visible="false" OnClick="btnOrderList_Click"/>
+            </td>
+        </tr>
+    </table>
+    <div  align="center">
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" style="width:600px;height:300px">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="..." class="d-block w-100 h-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>First slide label</h5>
+                    <p>Some representative placeholder content for the first slide.</p>
                 </div>
-                <div class="modal-body">
-                    [商品詳細]莫札瑞拉是起源於義大利的淡起司，莫札瑞拉通常呈純白色或米白色，口感滑順、風味清新，加熱可以產生強烈的拉絲效果。傳統莫札瑞拉以水牛乳製作，但現在多數已由牛乳取代。
-                    [料理用法]莫札瑞拉適合品嚐原味，可搭配切片番茄、新鮮羅勒葉，再加上海鹽與幾滴橄欖油食用。
+            </div>
+            <div class="carousel-item">
+                <img src="..." class="d-block w-100 h-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Second slide label</h5>
+                    <p>Some representative placeholder content for the second slide.</p>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+            <div class="carousel-item">
+                <img src="..." class="d-block w-100 h-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Third slide label</h5>
+                    <p>Some representative placeholder content for the third slide.</p>
                 </div>
             </div>
         </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
-
+</div>
 </asp:Content>

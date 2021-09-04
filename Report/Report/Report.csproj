@@ -101,15 +101,23 @@
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="Login.aspx" />
-    <Content Include="Order.aspx" />
+    <Content Include="SystemAdmin\AllOrderEdit.aspx" />
+    <Content Include="SystemProduct\EditProduct.aspx" />
+    <Content Include="SystemOrder\AllOrderRecord.aspx" />
+    <Content Include="SystemMember\MemberOrderEdit.aspx" />
+    <Content Include="SystemOrder\CheckOrder.aspx" />
+    <Content Include="SystemOrder\OrderPage.aspx" />
     <Content Include="Script\jquery-3.6.0.min.js" />
     <Content Include="SignUp.aspx" />
+    <Content Include="SystemAdmin\AddProduct.aspx" />
     <Content Include="SystemAdmin\Admin.aspx" />
     <Content Include="SystemAdmin\MemberEdit.aspx" />
     <Content Include="SystemAdmin\MemberList.aspx" />
     <Content Include="SystemMember\Member.aspx" />
     <Content Include="SystemMember\MemberDetail.aspx" />
     <Content Include="SystemMember\MemberPWD.aspx" />
+    <Content Include="SystemOrder\OrderRecord.aspx" />
+    <Content Include="SystemProduct\ProductList.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -123,6 +131,7 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\FileHelper.cs" />
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -137,12 +146,47 @@
     <Compile Include="Main.Master.designer.cs">
       <DependentUpon>Main.Master</DependentUpon>
     </Compile>
-    <Compile Include="Order.aspx.cs">
-      <DependentUpon>Order.aspx</DependentUpon>
+    <Compile Include="SystemAdmin\AllOrderEdit.aspx.cs">
+      <DependentUpon>AllOrderEdit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Order.aspx.designer.cs">
-      <DependentUpon>Order.aspx</DependentUpon>
+    <Compile Include="SystemAdmin\AllOrderEdit.aspx.designer.cs">
+      <DependentUpon>AllOrderEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SystemProduct\EditProduct.aspx.cs">
+      <DependentUpon>EditProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SystemProduct\EditProduct.aspx.designer.cs">
+      <DependentUpon>EditProduct.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SystemOrder\AllOrderRecord.aspx.cs">
+      <DependentUpon>AllOrderRecord.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SystemOrder\AllOrderRecord.aspx.designer.cs">
+      <DependentUpon>AllOrderRecord.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SystemMember\MemberOrderEdit.aspx.cs">
+      <DependentUpon>MemberOrderEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SystemMember\MemberOrderEdit.aspx.designer.cs">
+      <DependentUpon>MemberOrderEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SystemOrder\CheckOrder.aspx.cs">
+      <DependentUpon>CheckOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SystemOrder\CheckOrder.aspx.designer.cs">
+      <DependentUpon>CheckOrder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SystemOrder\OrderPage.aspx.cs">
+      <DependentUpon>OrderPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SystemOrder\OrderPage.aspx.designer.cs">
+      <DependentUpon>OrderPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SignUp.aspx.cs">
@@ -151,6 +195,13 @@
     </Compile>
     <Compile Include="SignUp.aspx.designer.cs">
       <DependentUpon>SignUp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SystemAdmin\AddProduct.aspx.cs">
+      <DependentUpon>AddProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SystemAdmin\AddProduct.aspx.designer.cs">
+      <DependentUpon>AddProduct.aspx</DependentUpon>
     </Compile>
     <Compile Include="SystemAdmin\Admin.aspx.cs">
       <DependentUpon>Admin.aspx</DependentUpon>
@@ -194,6 +245,20 @@
     <Compile Include="SystemMember\MemberPWD.aspx.designer.cs">
       <DependentUpon>MemberPWD.aspx</DependentUpon>
     </Compile>
+    <Compile Include="SystemOrder\OrderRecord.aspx.cs">
+      <DependentUpon>OrderRecord.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SystemOrder\OrderRecord.aspx.designer.cs">
+      <DependentUpon>OrderRecord.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SystemProduct\ProductList.aspx.cs">
+      <DependentUpon>ProductList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SystemProduct\ProductList.aspx.designer.cs">
+      <DependentUpon>ProductList.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Main.Master" />
@@ -229,6 +294,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="FileDownload\Admin\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

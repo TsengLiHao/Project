@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:GridView ID="gvMemberList" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="Black" GridLines="Horizontal" align="center" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px">
+    <asp:GridView ID="gvMemberList" runat="server" AutoGenerateColumns="False" CellPadding="3" align="center" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellSpacing="2" >
             <Columns>
                 <asp:TemplateField HeaderText="等級">
                     <ItemTemplate>
@@ -18,20 +18,22 @@
                 <asp:BoundField DataField="CreateDate" HeaderText="創建日期" />
             </Columns>
 
-            <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
-            <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
-            <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
-            <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
-            <SortedAscendingCellStyle BackColor="#F7F7F7" />
-            <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
-            <SortedDescendingCellStyle BackColor="#E5E5E5" />
-            <SortedDescendingHeaderStyle BackColor="#242121" />
+            <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
+            <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />
+            <PagerStyle ForeColor="#8C4510" HorizontalAlign="Center" />
+            <RowStyle BackColor="#FFF7E7" ForeColor="#8C4510" />
+            <SelectedRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="White" />
+            <SortedAscendingCellStyle BackColor="#FFF1D4" />
+            <SortedAscendingHeaderStyle BackColor="#B95C30" />
+            <SortedDescendingCellStyle BackColor="#F1E5CE" />
+            <SortedDescendingHeaderStyle BackColor="#93451F" />
 
         </asp:GridView>
         <div align="center">
+            <asp:Literal ID="ltlMsg" runat="server"></asp:Literal>
+            <br />
             <asp:Button ID="btnEdit" runat="server" Text="變更個人資訊" OnClick="btnEdit_Click"/>
             &emsp;
             <asp:Button ID="btnLogout" runat="server" Text="登出" OnClick="btnLogout_Click" />
         </div>
-        <asp:Literal ID="ltlMsg" runat="server"></asp:Literal>
 </asp:Content>
