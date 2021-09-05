@@ -47,16 +47,30 @@ namespace Report.SystemAdmin
                 return;
             }
 
+            string productIDText = Request.QueryString["ProductID"];
+            string priceText = this.txtPrice.Text;
+            string weightText = this.txtWeight.Text;
+            string firstText = this.txtFirstDate.Text;
+            string lastText = this.txtLastDate.Text;
+            string disText = this.txtDiscontinued.Text;
+
+            int productID = Convert.ToInt32(productIDText);
+            decimal price = Convert.ToDecimal(priceText);
+            decimal weight = Convert.ToDecimal(weightText);
+            DateTime firstDate = Convert.ToDateTime(firstText);
+            DateTime lastDate = Convert.ToDateTime(lastText);
+            int discontinued = Convert.ToInt32(disText);
+
             Product productUpdate = new Product()
             {
-                ProductID = Convert.ToInt32(Request.QueryString["ProductID"]),
+                ProductID = productID,
                 ProductName = this.txtName.Text,
-                UnitPrice = Convert.ToDecimal(this.txtPrice.Text),
-                WeightPerUnit = Convert.ToDecimal(this.txtWeight.Text),
-                ManufactureDate = Convert.ToDateTime(this.txtFirstDate.Text),
-                ExpirationDate = Convert.ToDateTime(this.txtLastDate.Text),
+                UnitPrice = price,
+                WeightPerUnit = weight,
+                ManufactureDate = firstDate,
+                ExpirationDate = lastDate,
                 Body = this.txtInfo.Text,
-                Discontinued = Convert.ToInt32(this.txtDiscontinued.Text),
+                Discontinued = discontinued,
                 Photo = this.fileUpload.FileName
             };
 

@@ -15,6 +15,7 @@
     </style>
     
         <h1 align="center">Cancel Order</h1>
+    <asp:HiddenField ID="HiddenField1" runat="server" />
         <br />
         <div id="divText" align="center">
             <asp:Label ID="Label1" runat="server" CssClass="lbl" Text="帳號:"></asp:Label>
@@ -26,7 +27,10 @@
            <asp:Label ID="Label7" runat="server" CssClass="lbl" Text="單價:"></asp:Label>
             <asp:TextBox ID="txtPrice" runat="server" CssClass="txt" Enabled="false"></asp:TextBox><br />
             <asp:Label ID="Label8" runat="server" CssClass="lbl" Text="數量:"></asp:Label>
-            <asp:TextBox ID="txtQuantity" runat="server" CssClass="txt" Enabled="false"></asp:TextBox><br />
+            <asp:TextBox ID="txtQuantity" runat="server" CssClass="txt" TextMode="Number"></asp:TextBox>
+            <br />
+            <asp:Button ID="btnCal" runat="server" Text="計算總計金額" OnClick="btnCal_Click" Width="200"/>
+            <br />
             <asp:Label ID="Label9" runat="server" CssClass="lbl" Text="總計金額:"></asp:Label>
             <asp:TextBox ID="txtTotal" runat="server" CssClass="txt" Enabled="false"></asp:TextBox><br />
             <asp:Label ID="Label10" runat="server" CssClass="lbl" Text="付款方式:"></asp:Label>

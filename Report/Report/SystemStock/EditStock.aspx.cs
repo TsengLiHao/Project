@@ -34,24 +34,36 @@ namespace Report.SystemStock
 
         protected void btnConfirm_Click(object sender, EventArgs e)
         {
-            if (Convert.ToInt32(this.txtStatus.Text) < 0 || Convert.ToInt32(this.txtStatus.Text) > 1)
-            {
-                this.ltlMsg.Text = "商品狀態請輸入整數 0 或 1";
-                return;
-            }
-
             if (string.IsNullOrEmpty(this.txtName.Text) || string.IsNullOrEmpty(this.txtCurrentValue.Text) || string.IsNullOrEmpty(this.txtOrderedValue.Text) || string.IsNullOrEmpty(this.txtStatus.Text))
             {
                 this.ltlMsg.Text = "輸入項目不可為空";
                 return;
             }
+
+            string stockIDText = Request.QueryString["StockID"];
+            string currentText = this.txtCurrentValue.Text;
+            string orderedText = this.txtOrderedValue.Text;
+            string statusText = this.txtStatus.Text;
+
+            int stockID = Convert.ToInt32(stockIDText);
+            int currentQuantity = Convert.ToInt32(currentText);
+            int orderedQuantity = Convert.ToInt32(orderedText);
+            int productStatus = Convert.ToInt32(statusText);
+
+
+            if (productStatus < 0 || productStatus > 1)
+            {
+                this.ltlMsg.Text = "商品狀態請輸入整數 0 或 1";
+                return;
+            }
+
             Stock stockInfo = new Stock()
             {
-                StockID = Convert.ToInt32(Request.QueryString["StockID"]),
+                StockID = stockID,
                 ProductName = this.txtName.Text,
-                CurrentQuantity = Convert.ToInt32(this.txtCurrentValue.Text),
-                OrderedQuantity = Convert.ToInt32(this.txtOrderedValue.Text),
-                ProductStatus = Convert.ToInt32(this.txtStatus.Text),
+                CurrentQuantity = currentQuantity,
+                OrderedQuantity = orderedQuantity,
+                ProductStatus = productStatus,
                 ChangedDate = DateTime.Now
             };
 

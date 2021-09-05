@@ -131,6 +131,8 @@ namespace Project.ORM
                         dbObject.OrderedQuantity = orderInfo.OrderedQuantity;
                         dbObject.Payment = orderInfo.Payment;
                         dbObject.ProductName = orderInfo.ProductName;
+                        dbObject.ChangedDate = DateTime.Now;
+
 
                         context.SaveChanges();
 

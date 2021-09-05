@@ -19,6 +19,7 @@
                 </asp:TemplateField>
                 <asp:BoundField DataField="Payment" HeaderText="付款方式" />
                 <asp:BoundField DataField="OrderDate" HeaderText="訂購日期" />
+                <asp:BoundField DataField="ChangedDate" HeaderText="更改日期" />
                 <asp:TemplateField >
                     <ItemTemplate>
                        <a href="/SystemAdmin/AllOrderEdit.aspx?OrderID=<%# Eval("OrderID") %>">編輯訂單</a>

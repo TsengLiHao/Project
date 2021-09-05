@@ -24,15 +24,28 @@ namespace Report.SystemAdmin
 
         protected void btnConfirm_Click(object sender, EventArgs e)
         {
+            string priceText = this.txtPrice.Text;
+            string weightText = this.txtWeight.Text;
+            string firstText = this.txtFirstDate.Text;
+            string lastText = this.txtLastDate.Text;
+            string disText = this.txtDiscontinued.Text;
+
+            decimal price = Convert.ToDecimal(priceText);
+            decimal weight = Convert.ToDecimal(weightText);
+            DateTime firstDate = Convert.ToDateTime(firstText);
+            DateTime lastDate = Convert.ToDateTime(lastText);
+            int discontinued = Convert.ToInt32(disText);
+
+
             Product newProduct = new Product()
             {
                 ProductName = this.txtName.Text,
-                UnitPrice = Convert.ToDecimal(this.txtPrice.Text),
-                WeightPerUnit = Convert.ToDecimal(this.txtWeight.Text),
-                ManufactureDate = Convert.ToDateTime(this.txtFirstDate.Text),
-                ExpirationDate = Convert.ToDateTime(this.txtLastDate.Text),
+                UnitPrice = price,
+                WeightPerUnit = weight,
+                ManufactureDate = firstDate,
+                ExpirationDate = lastDate,
                 Body = this.txtInfo.Text,
-                Discontinued = Convert.ToInt32(this.txtDiscontinued.Text)
+                Discontinued = discontinued
             };
 
             // 假如有上傳檔案，就寫入檔名

@@ -36,15 +36,23 @@ namespace Report.SystemMember
 
         protected void btnConfirm_Click(object sender, EventArgs e)
         {
+            string productIDText = this.HiddenField1.Value;
+            string priceText = this.txtPrice.Text;
+            string quantityText = this.txtQuantity.Text;
+
+            int productID = Convert.ToInt32(productIDText);
+            decimal price = Convert.ToDecimal(priceText);
+            int orderedPrice = Convert.ToInt32(quantityText);
+
             Order orderInfo = new Order()
             {
                 Account = this.txtAccount.Text,
                 MemberName = this.txtName.Text,
-                ProductID = Convert.ToInt32(this.HiddenField1.Value),
+                ProductID = productID,
                 ProductName = this.txtProductName.Text,
-                UnitPrice = Convert.ToDecimal(this.txtPrice.Text),
-                OrderedQuantity = Convert.ToInt32(this.txtQuantity.Text),
-                Payment = this.txtPayment.Text.ToString()
+                UnitPrice = price,
+                OrderedQuantity = orderedPrice,
+                Payment = this.txtPayment.Text
             };
 
             var orderID = Request.QueryString["OrderID"];

@@ -21,12 +21,20 @@ namespace Report.SystemStock
 
         protected void btnConfirm_Click(object sender, EventArgs e)
         {
+            string currentText = this.txtCurrent.Text;
+            string orderedText = this.txtOrdered.Text;
+            string statusText = this.txtStatus.Text;
+
+            int currentQuantity = Convert.ToInt32(currentText);
+            int orderedQuantity = Convert.ToInt32(orderedText);
+            int productStatus = Convert.ToInt32(statusText);
+
             Stock stockInfo = new Stock()
             {
                 ProductName = this.txtName.Text,
-                CurrentQuantity = Convert.ToInt32(this.txtCurrent.Text),
-                OrderedQuantity = Convert.ToInt32(this.txtOrdered.Text),
-                ProductStatus = Convert.ToInt32(this.txtStatus.Text)
+                CurrentQuantity = currentQuantity,
+                OrderedQuantity = orderedQuantity,
+                ProductStatus = productStatus
             };
 
             if (Convert.ToInt32(this.txtStatus.Text) < 0 || Convert.ToInt32(this.txtStatus.Text) > 1)
