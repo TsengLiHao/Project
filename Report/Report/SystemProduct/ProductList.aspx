@@ -39,6 +39,8 @@
         <div align="center">
             <asp:Literal ID="ltlMsg" runat="server"></asp:Literal>
             <br />
+            <asp:Button ID="btnCreate" runat="server" Text="新增商品" OnClick="btnCreate_Click"/>
+            &emsp;
             <asp:Button ID="btnBack" runat="server" Text="回首頁" OnClick="btnBack_Click"/>
         </div>
 </asp:Content>

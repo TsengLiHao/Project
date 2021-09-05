@@ -11,8 +11,6 @@ namespace Project.ORM.DBModels
     {
         public int StockID { get; set; }
 
-        public int ProductID { get; set; }
-
         [Required]
         [StringLength(50)]
         public string ProductName { get; set; }
@@ -21,10 +19,8 @@ namespace Project.ORM.DBModels
 
         public int OrderedQuantity { get; set; }
 
-        public int ExpiredQuantity { get; set; }
+        public int ProductStatus { get; set; }
 
-        public int? ChangedQuantity { get; set; }
-
-        public DateTime? ChangedDate { get; set; }
+        public DateTime ChangedDate { get; set; }
     }
 }

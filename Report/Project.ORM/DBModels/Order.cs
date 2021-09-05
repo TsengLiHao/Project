@@ -18,6 +18,8 @@ namespace Project.ORM.DBModels
         [StringLength(50)]
         public string Account { get; set; }
 
+        public int ProductID { get; set; }
+
         [Required]
         [StringLength(50)]
         public string ProductName { get; set; }

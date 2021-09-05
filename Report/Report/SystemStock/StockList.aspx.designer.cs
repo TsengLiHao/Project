@@ -7,38 +7,47 @@
 // </自動產生的>
 //------------------------------------------------------------------------------
 
-namespace Report.SystemAdmin
+namespace Report.SystemStock
 {
 
 
-    public partial class MemberList
+    public partial class StockList
     {
 
         /// <summary>
-        /// gvMemberList 控制項。
+        /// gvStockList 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvMemberList;
+        protected global::System.Web.UI.WebControls.GridView gvStockList;
 
         /// <summary>
-        /// ucPager 控制項。
+        /// ltlMsg 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::Report.UserControl.ucPager ucPager;
+        protected global::System.Web.UI.WebControls.Literal ltlMsg;
 
         /// <summary>
-        /// btnBack 控制項。
+        /// btnEdit 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBack;
+        protected global::System.Web.UI.WebControls.Button btnEdit;
+
+        /// <summary>
+        /// btnLogout 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnLogout;
     }
 }

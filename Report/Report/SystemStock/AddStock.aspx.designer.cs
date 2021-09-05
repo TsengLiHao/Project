@@ -7,120 +7,93 @@
 // </自動產生的>
 //------------------------------------------------------------------------------
 
-namespace Report
+namespace Report.SystemStock
 {
 
 
-    public partial class OrderPage
+    public partial class AddStock
     {
 
         /// <summary>
-        /// HiddenField1 控制項。
+        /// Label1 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField HiddenField1;
+        protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// Image1 控制項。
+        /// txtName 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image1;
+        protected global::System.Web.UI.WebControls.TextBox txtName;
 
         /// <summary>
-        /// ddlProduct 控制項。
+        /// Label2 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlProduct;
+        protected global::System.Web.UI.WebControls.Label Label2;
 
         /// <summary>
-        /// PlaceHolder1 控制項。
+        /// txtCurrent 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder PlaceHolder1;
+        protected global::System.Web.UI.WebControls.TextBox txtCurrent;
 
         /// <summary>
-        /// ltlPrice 控制項。
+        /// Label3 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ltlPrice;
+        protected global::System.Web.UI.WebControls.Label Label3;
 
         /// <summary>
-        /// ltlWeight 控制項。
+        /// txtOrdered 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ltlWeight;
+        protected global::System.Web.UI.WebControls.TextBox txtOrdered;
 
         /// <summary>
-        /// ltlFirst 控制項。
+        /// Label4 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ltlFirst;
+        protected global::System.Web.UI.WebControls.Label Label4;
 
         /// <summary>
-        /// ltlLast 控制項。
+        /// txtStatus 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ltlLast;
+        protected global::System.Web.UI.WebControls.TextBox txtStatus;
 
         /// <summary>
-        /// TextBox1 控制項。
+        /// Label5 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
-
-        /// <summary>
-        /// ltlProductStatus 控制項。
-        /// </summary>
-        /// <remarks>
-        /// 自動產生的欄位。
-        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ltlProductStatus;
-
-        /// <summary>
-        /// txtValue 控制項。
-        /// </summary>
-        /// <remarks>
-        /// 自動產生的欄位。
-        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtValue;
-
-        /// <summary>
-        /// rblPayment 控制項。
-        /// </summary>
-        /// <remarks>
-        /// 自動產生的欄位。
-        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rblPayment;
+        protected global::System.Web.UI.WebControls.Label Label5;
 
         /// <summary>
         /// ltlMsg 控制項。

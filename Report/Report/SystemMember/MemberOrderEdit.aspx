@@ -16,6 +16,7 @@
     
         <h1 align="center">Cancel Order</h1>
         <br />
+    <asp:HiddenField ID="HiddenField1" runat="server" />
         <div id="divText" align="center">
             <asp:Label ID="Label1" runat="server" CssClass="lbl" Text="帳號:"></asp:Label>
             <asp:TextBox ID="txtAccount" runat="server" CssClass="txt" Enabled="false"></asp:TextBox><br />

@@ -41,6 +41,12 @@ namespace Report.SystemAdmin
 
         protected void btnConfirm_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(this.txtName.Text) || string.IsNullOrEmpty(this.txtPrice.Text) || string.IsNullOrEmpty(this.txtWeight.Text) || string.IsNullOrEmpty(this.txtFirstDate.Text) || string.IsNullOrEmpty(this.txtLastDate.Text) || string.IsNullOrEmpty(this.txtDiscontinued.Text))
+            {
+                ltlMsg.Text = "輸入項目不能為空白";
+                return;
+            }
+
             Product productUpdate = new Product()
             {
                 ProductID = Convert.ToInt32(Request.QueryString["ProductID"]),
@@ -63,13 +69,8 @@ namespace Report.SystemAdmin
                 productUpdate.Photo = saveFileName;
             }
 
-            if (string.IsNullOrEmpty(this.txtName.Text) || string.IsNullOrEmpty(this.txtPrice.Text) || string.IsNullOrEmpty(this.txtWeight.Text) || string.IsNullOrEmpty(this.txtFirstDate.Text) || string.IsNullOrEmpty(this.txtLastDate.Text) || string.IsNullOrEmpty(this.txtDiscontinued.Text))
-            {
-                ltlMsg.Text = "輸入項目不能為空白";
-                return;
-            }
-
             ProductManager.UpdateProduct(productUpdate);
+            Response.Redirect("/SystemProduct/ProductList.aspx");
         }
         protected void btnCancel_Click(object sender, EventArgs e)
         {

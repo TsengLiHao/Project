@@ -1,4 +1,5 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="Report.Main" %>
+<% Response.Charset = "UTF-8"; %> 
 <connectionStrings>
 	  <add name="DefaultConnection" connectionString="Data Source=.\SQLEXPRESS;Initial Catalog=Project;Integrated Security=True;"/>
     <add name="DefaultConnectionString" connectionString="data source=localhost\SQLEXPRESS;initial catalog=Project;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework" providerName="System.Data.SqlClient" />

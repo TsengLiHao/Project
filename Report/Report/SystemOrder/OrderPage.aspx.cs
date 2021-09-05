@@ -25,20 +25,23 @@ namespace Report
                 if (this.Session["AdminInfo"] != null)
                 {
                     this.btnConfirm.Visible = false;
-                    this.btnList.Visible = false;
                 }
             }
         }
 
         protected void ddlProduct_TextChanged(object sender, EventArgs e)
         {
-
             var productInfo = ProductManager.GetProductInfoByName(ddlProduct.SelectedValue);
+
+            var stockInfo = StockManager.GetStockInfoByProductName(productInfo.ProductName);
 
             if (productInfo != null)
             {
                 PlaceHolder1.Visible = true;
+                this.txtValue.Visible = true;
+                this.rblPayment.Visible = true;
 
+                this.HiddenField1.Value = productInfo.ProductID.ToString();
                 this.ltlPrice.Text = productInfo.UnitPrice.ToString();
                 this.ltlWeight.Text = $"{productInfo.WeightPerUnit} kg";
                 this.ltlFirst.Text = productInfo.ManufactureDate.ToShortDateString();
@@ -46,24 +49,30 @@ namespace Report
                 this.TextBox1.Text = productInfo.Body;
                 this.Image1.ImageUrl = $"/FileDownload/Admin/{productInfo.Photo}" ;
 
-                TimeSpan day = productInfo.ExpirationDate.Subtract(productInfo.ManufactureDate);
-                
+                TimeSpan day = productInfo.ExpirationDate.Subtract(DateTime.Today);
+
                 if (day.TotalDays < 14)
                 {
                     productInfo.Discontinued = 0;
+                    StockManager.UpdateStockByExpiration();
                 }
 
-                if (productInfo.Discontinued == 0)
+                if(DateTime.Today > productInfo.ExpirationDate)
+                {
+                    stockInfo.ProductStatus = 0;
+                }
+
+                if(stockInfo.CurrentQuantity <= 5)
+                {
+                    this.ltlProductStatus.Text = $"此商品現在剩餘數量 : {stockInfo.CurrentQuantity}";
+                }
+
+                if (productInfo.Discontinued == 0 || stockInfo.CurrentQuantity == 0 || stockInfo.ProductStatus == 0)
                 {
                     PlaceHolder1.Visible = false;
-                    this.ltlProductValue.Text = "此商品目前暫時下架";
+                    this.ltlProductStatus.Text = "此商品目前暫時下架";
+                    return;
                 }
-                else
-                {
-                    this.ltlProductValue.Text = "";
-                }
-
-                
             }
             else
             {
@@ -95,6 +104,16 @@ namespace Report
                 return;
             }
 
+            var productInfo = ProductManager.GetProductInfoByName(ddlProduct.SelectedValue);
+
+            var stockInfo = StockManager.GetStockInfoByProductName(productInfo.ProductName);
+
+            if (Convert.ToInt32(this.txtValue.Text) > stockInfo.CurrentQuantity)
+            {
+                this.ltlMsg.Text = "選擇數量大於庫存數量,請重新輸入";
+                return;
+            }
+
             var currentUserAccount = this.Session["MemberInfo"].ToString();
 
             var memberInfo = MemberManager.GetMemberInfoByAccount(currentUserAccount);
@@ -106,10 +125,11 @@ namespace Report
             cookie["Email"] = memberInfo.Email;
             cookie["MobilePhone"] = memberInfo.MobilePhone;
             cookie["Adress"] = memberInfo.Adress;
+            cookie["ProductID"] = this.HiddenField1.Value;
             cookie["ProductName"] = this.ddlProduct.SelectedItem.Text;
             cookie["Price"] = this.ltlPrice.Text;
             cookie["Quantity"] = this.txtValue.Text;
-            cookie["Payment"] = this.rblPayment.SelectedItem.Text;
+            cookie["Payment"] = HttpUtility.UrlEncode(this.rblPayment.SelectedItem.Text);
 
             cookie.Expires = DateTime.Now.AddHours(1);
             cookie.HttpOnly = true;
@@ -123,9 +143,5 @@ namespace Report
             Response.Redirect("/Default.aspx");
         }
 
-        protected void btnList_Click(object sender, EventArgs e)
-        {
-            
-        }
     }
 }

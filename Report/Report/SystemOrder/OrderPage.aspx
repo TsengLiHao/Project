@@ -12,6 +12,8 @@
     </style>
  
     <div align="center">
+        <asp:HiddenField ID="HiddenField1" runat="server" Value=""/>
+        
         <table width="100%" style="border-spacing: 100px;">
             <tr>
                 <td align="center">
@@ -22,7 +24,8 @@
                </asp:DropDownList>
                     <div align="center"">
                             <br />
-                        <asp:PlaceHolder ID="PlaceHolder1" runat="server" Visible="false" ><table>
+                        <asp:PlaceHolder ID="PlaceHolder1" runat="server" Visible="false" >
+                            <table>
                                 <tr>
                                     <th>單價:</th>
                                     <td style="padding-left:130px"> 
@@ -54,8 +57,7 @@
                                     </td>
 
                             </table></asp:PlaceHolder>
-                            <asp:Literal ID="ltlDiscontinued" runat="server"></asp:Literal>
-                            <asp:Literal ID="ltlProductValue" runat="server"></asp:Literal>
+                            <asp:Literal ID="ltlProductStatus" runat="server"></asp:Literal>
                     </div>
                 </td>
                 <td align="center" valign="top">
@@ -65,8 +67,8 @@
                     <br>
                     <b >選擇付款方式:</b>
                     <asp:RadioButtonList ID="rblPayment" runat="server">
-                        <asp:ListItem Value="0" Selected="True">現金</asp:ListItem>
-                        <asp:ListItem Value="1">信用卡</asp:ListItem>
+                        <asp:ListItem Value="0" Selected="True" Text="現金"></asp:ListItem>
+                        <asp:ListItem Value="1" Text="信用卡"></asp:ListItem>
                     </asp:RadioButtonList>
                     <br />
                     <asp:Literal ID="ltlMsg" runat="server"></asp:Literal>
@@ -77,8 +79,6 @@
     <br />
     <div id="divButton" align="center">
         <asp:Button ID="btnConfirm" runat="server" Text="確認購買" OnClick="btnConfirm_Click"/>
-        &emsp;
-            <asp:Button ID="btnList" runat="server" Text="放入購物清單" OnClick="btnList_Click"/>
         &emsp;
             <asp:Button ID="btnCancel" runat="server" Text="取消" OnClick="btnCancel_Click"/>
         

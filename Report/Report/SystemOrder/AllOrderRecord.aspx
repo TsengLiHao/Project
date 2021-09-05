@@ -1,4 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="AllOrderRecord.aspx.cs" Inherits="Report.SystemAdmin.AllOrderRecord" %>
+
+<%@ Register Src="~/ucPager.ascx" TagPrefix="uc1" TagName="ucPager" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -34,6 +37,11 @@
             <SortedDescendingHeaderStyle BackColor="#93451F" />
 
         </asp:GridView>
+        <br />
+        <div align="center">
+            <uc1:ucPager runat="server" ID="ucPager" PageSize="10" Url="SystemOrder/AllOrderRecord.aspx" />
+        </div>
+        <br />
         <div align="center">
             <asp:Literal ID="ltlMsg" runat="server"></asp:Literal>
             <br />

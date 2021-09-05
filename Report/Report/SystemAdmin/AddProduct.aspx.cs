@@ -51,7 +51,26 @@ namespace Report.SystemAdmin
                 return;
             }
 
+            if (Convert.ToInt32(this.txtDiscontinued.Text) < 0 || Convert.ToInt32(this.txtDiscontinued.Text) > 1)
+            {
+                this.ltlMsg.Text = "商品狀態請輸入整數 0 或 1";
+                return;
+            }
+
+            if (!this.fileUpload.HasFile)
+            {
+                ltlMsg.Text = "請上傳商品照片";
+                return;
+            }
+            var stockInfo = StockManager.GetStockInfoByProductName(this.txtName.Text);
+            if(stockInfo == null)
+            {
+                this.ltlMsg.Text = "此商品並無庫存";
+                return;
+            }
             ProductManager.CreateProduct(newProduct);
+
+            Response.Redirect("/SystemProduct/ProductList.aspx");
         }
 
         protected void btnCancel_Click(object sender, EventArgs e)

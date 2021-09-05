@@ -15,13 +15,13 @@ namespace Report
     {
 
         /// <summary>
-        /// btnProduct 控制項。
+        /// btnMemberInfo 控制項。
         /// </summary>
         /// <remarks>
         /// 自動產生的欄位。
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnProduct;
+        protected global::System.Web.UI.WebControls.Button btnMemberInfo;
 
         /// <summary>
         /// btnEditProduct 控制項。
@@ -33,15 +33,6 @@ namespace Report
         protected global::System.Web.UI.WebControls.Button btnEditProduct;
 
         /// <summary>
-        /// btnMemberInfo 控制項。
-        /// </summary>
-        /// <remarks>
-        /// 自動產生的欄位。
-        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnMemberInfo;
-
-        /// <summary>
         /// btnOrderList 控制項。
         /// </summary>
         /// <remarks>
@@ -49,5 +40,14 @@ namespace Report
         /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnOrderList;
+
+        /// <summary>
+        /// btnStock 控制項。
+        /// </summary>
+        /// <remarks>
+        /// 自動產生的欄位。
+        /// 若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnStock;
     }
 }

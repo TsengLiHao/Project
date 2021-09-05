@@ -118,6 +118,10 @@
     <Content Include="SystemMember\MemberPWD.aspx" />
     <Content Include="SystemOrder\OrderRecord.aspx" />
     <Content Include="SystemProduct\ProductList.aspx" />
+    <Content Include="SystemStock\AddStock.aspx" />
+    <Content Include="SystemStock\EditStock.aspx" />
+    <Content Include="SystemStock\StockList.aspx" />
+    <Content Include="ucPager.ascx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -258,6 +262,34 @@
     </Compile>
     <Compile Include="SystemProduct\ProductList.aspx.designer.cs">
       <DependentUpon>ProductList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SystemStock\AddStock.aspx.cs">
+      <DependentUpon>AddStock.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SystemStock\AddStock.aspx.designer.cs">
+      <DependentUpon>AddStock.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SystemStock\EditStock.aspx.cs">
+      <DependentUpon>EditStock.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SystemStock\EditStock.aspx.designer.cs">
+      <DependentUpon>EditStock.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SystemStock\StockList.aspx.cs">
+      <DependentUpon>StockList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SystemStock\StockList.aspx.designer.cs">
+      <DependentUpon>StockList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ucPager.ascx.cs">
+      <DependentUpon>ucPager.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ucPager.ascx.designer.cs">
+      <DependentUpon>ucPager.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

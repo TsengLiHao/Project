@@ -27,5 +27,9 @@ namespace Report.SystemProduct
         {
             Response.Redirect("/Default.aspx");
         }
+        protected void btnCreate_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/SystemAdmin/AddProduct.aspx");
+        }
     }
 }

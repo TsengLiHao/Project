@@ -5,16 +5,18 @@
     <table align="left">
         <tr>
             <td>
-                <asp:Button ID="btnProduct" runat="server" Text="新增商品" Visible="false" OnClick="btnProduct_Click"/>
+                <asp:Button ID="btnMemberInfo" runat="server" Text="會員資訊" Visible="false" OnClick="btnMemberInfo_Click"/>
                 <br />
                 <br />
-                <asp:Button ID="btnEditProduct" runat="server" Text="編輯商品資訊" Visible="false" OnClick="btnEditProduct_Click"/>
+                <asp:Button ID="btnEditProduct" runat="server" Text="管理商品" Visible="false" OnClick="btnEditProduct_Click"/>
                 <br />
                 <br />
-                <asp:Button ID="btnMemberInfo" runat="server" Text="編輯會員資訊" Visible="false" OnClick="btnMemberInfo_Click"/>
+                <asp:Button ID="btnOrderList" runat="server" Text="管理訂單" Visible="false" OnClick="btnOrderList_Click"/>
                 <br />
                 <br />
-                <asp:Button ID="btnOrderList" runat="server" Text="編輯訂單" Visible="false" OnClick="btnOrderList_Click"/>
+                <asp:Button ID="btnStock" runat="server" Text="管理庫存" Visible="false" OnClick="btnStock_Click"/>
+                <br />
+                <br />
             </td>
         </tr>
     </table>

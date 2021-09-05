@@ -101,6 +101,7 @@ namespace Project.ORM
             {
                 using (ContextModel context = new ContextModel())
                 {
+                    
                     orderInfo.OrderDate = DateTime.Now;
                     context.Orders.Add(orderInfo);
 

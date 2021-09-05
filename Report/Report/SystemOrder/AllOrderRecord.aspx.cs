@@ -1,4 +1,5 @@
 ﻿using Project.ORM;
+using Project.ORM.DBModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,8 +19,13 @@ namespace Report.SystemAdmin
 
                 if (AllOrderInfo.Count > 0)
                 {
-                    this.gvOrderList.DataSource = AllOrderInfo;
+                    var pagedList = this.GetPagedDataTable(AllOrderInfo);
+
+                    this.gvOrderList.DataSource = pagedList;
                     this.gvOrderList.DataBind();
+
+                    this.ucPager.TotalSize = AllOrderInfo.Count;
+                    this.ucPager.Bind();
                 }
                 else
                 {
@@ -32,6 +38,26 @@ namespace Report.SystemAdmin
                 Response.Redirect("/Default.aspx");
                 return;
             }
+        }
+
+        private int GetCurrentPage()
+        {
+            string pageText = Request.QueryString["Page"];
+
+            if (string.IsNullOrWhiteSpace(pageText))
+                return 1;
+            int intPage;
+            if (!int.TryParse(pageText, out intPage))
+                return 1;
+            if (intPage <= 0)
+                return 1;
+            return intPage;
+        }
+
+        private List<Order> GetPagedDataTable(List<Order> list)
+        {
+            int startIndex = (this.GetCurrentPage() - 1) * 10;
+            return list.Skip(startIndex).Take(10).ToList();
         }
 
         protected void btnBack_Click(object sender, EventArgs e)

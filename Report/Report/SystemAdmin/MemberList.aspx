@@ -1,4 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="MemberList.aspx.cs" Inherits="Report.SystemAdmin.MemberList" %>
+
+<%@ Register Src="~/ucPager.ascx" TagPrefix="uc1" TagName="ucPager" %>
+
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -33,8 +37,12 @@
             <SortedAscendingHeaderStyle BackColor="#B95C30" />
             <SortedDescendingCellStyle BackColor="#F1E5CE" />
             <SortedDescendingHeaderStyle BackColor="#93451F" />
-        </asp:GridView>
-        <br />
+    </asp:GridView>
+    <br />
+    <div align="center">
+        <uc1:ucPager runat="server" ID="ucPager" PageSize="10" Url="SystemAdmin/MemberList.aspx" />
+    </div>
+    <br />
         <div align="center">
             <asp:Button ID="btnBack" runat="server" Text="返回" OnClick="btnBack_Click"/>
         </div>

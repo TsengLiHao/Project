@@ -73,10 +73,6 @@ namespace Report.SystemMember
         protected void btnLogout_Click(object sender, EventArgs e)
         {
             this.Session["MemberInfo"] = null;
-
-            var cookie = Request.Cookies[_orderName];
-
-            cookie.Value = null;
            
             Response.Redirect("/Default.aspx");
         }

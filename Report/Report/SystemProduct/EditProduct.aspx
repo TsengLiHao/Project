@@ -40,6 +40,8 @@
             <br />
             <asp:Button ID="btnConfirm" runat="server" Text="確認修改" OnClick="btnConfirm_Click"/>
             &emsp;
+            <asp:Button ID="btnDelete" runat="server" Text="刪除商品"/>
+            &emsp;
             <asp:Button ID="btnCancel" runat="server" Text="取消" OnClick="btnCancel_Click"/> 
         </div>
 </asp:Content>

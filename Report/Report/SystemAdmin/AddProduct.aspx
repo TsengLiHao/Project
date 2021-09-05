@@ -19,17 +19,17 @@
             <asp:Label ID="Label1" runat="server" CssClass="lbl" Text="商品名稱:"></asp:Label>
             <asp:TextBox ID="txtName" runat="server" CssClass="txt"></asp:TextBox><br />
             <asp:Label ID="Label2" runat="server" CssClass="lbl" Text="單價:"></asp:Label>
-            <asp:TextBox ID="txtPrice" runat="server" CssClass="txt"></asp:TextBox><br />
+            <asp:TextBox ID="txtPrice" runat="server" CssClass="txt" TextMode="Number"></asp:TextBox><br />
             <asp:Label ID="Label3" runat="server" CssClass="lbl" Text="重量:"></asp:Label>
-            <asp:TextBox ID="txtWeight" runat="server" CssClass="txt"></asp:TextBox><br />
+            <asp:TextBox ID="txtWeight" runat="server" CssClass="txt" TextMode="Number"></asp:TextBox><br />
             <asp:Label ID="Label4" runat="server" CssClass="lbl" Text="製造日期"></asp:Label>
             <asp:TextBox ID="txtFirstDate" runat="server" CssClass="txt" TextMode="Date"></asp:TextBox><br />
             <asp:Label ID="Label5" runat="server" CssClass="lbl" Text="有效日期:"></asp:Label>
             <asp:TextBox ID="txtLastDate" runat="server" CssClass="txt" TextMode="Date"></asp:TextBox><br />
             <asp:Label ID="Label7" runat="server" CssClass="lbl" Text="其他商品資訊:"></asp:Label>
-            <asp:TextBox ID="txtInfo"  runat="server" CssClass="txt" TextMode="MultiLine"></asp:TextBox><br />
+            <asp:TextBox ID="txtInfo" runat="server" CssClass="txt" TextMode="MultiLine"></asp:TextBox><br />
             <asp:Label ID="Label8" runat="server" CssClass="lbl" Text="商品狀態:"></asp:Label>
-            <asp:TextBox ID="txtDiscontinued"  runat="server" CssClass="txt"></asp:TextBox><br />
+            <asp:TextBox ID="txtDiscontinued" runat="server" CssClass="txt" TextMode="Number"></asp:TextBox><br />
             <asp:Label ID="Label9" runat="server" Text="商品狀態輸入值為( 0 : 下架中 ; 1 : 上架中)"></asp:Label><br />
             <asp:Label ID="Label6" runat="server" CssClass="lbl" Text="商品照:"></asp:Label>
             <asp:FileUpload ID="fileUpload" runat="server" />

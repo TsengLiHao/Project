@@ -31,6 +31,7 @@ namespace Report.SystemOrder
                 this.txtEmail.Text = cookie["Email"];
                 this.txtPhone.Text = cookie["MobilePhone"];
                 this.txtAdress.Text = cookie["Adress"];
+                this.HiddenField1.Value = cookie["ProductID"];
                 this.txtProductName.Text = cookie["ProductName"];
                 this.txtPrice.Text = cookie["Price"];
                 this.txtQuantity.Text = cookie["Quantity"];
@@ -39,7 +40,7 @@ namespace Report.SystemOrder
                 var quantity = Convert.ToInt32(this.txtQuantity.Text);
 
                 this.txtTotal.Text = (price * quantity).ToString();
-                this.txtPayment.Text = cookie["Payment"];
+                this.txtPayment.Text = HttpUtility.UrlDecode(cookie["Payment"]);
             }
         }
 
@@ -49,6 +50,7 @@ namespace Report.SystemOrder
             {
                 Account = this.txtAccount.Text,
                 MemberName = this.txtName.Text,
+                ProductID = Convert.ToInt32(this.HiddenField1.Value),
                 ProductName = this.txtProductName.Text,
                 UnitPrice = Convert.ToDecimal(this.txtPrice.Text),
                 OrderedQuantity = Convert.ToInt32(this.txtQuantity.Text),
@@ -62,12 +64,15 @@ namespace Report.SystemOrder
             }
 
             OrderManager.CreateOrder(orderInfo);
+            StockManager.UpdateStockByOrder(orderInfo);
 
+            Response.Cookies["orderKey"].Expires = DateTime.Now.AddDays(-1);
             Response.Redirect("/SystemOrder/OrderRecord.aspx");
         }
 
         protected void btnCancel_Click(object sender, EventArgs e)
         {
+            Response.Cookies["orderKey"].Expires = DateTime.Now.AddDays(-1);
             Response.Redirect("/SystemOrder/OrderPage.aspx");
         }
     }

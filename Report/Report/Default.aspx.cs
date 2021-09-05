@@ -15,16 +15,10 @@ namespace Report
             {
                 this.btnMemberInfo.Visible = true;
                 this.btnOrderList.Visible = true;
-                this.btnProduct.Visible = true;
                 this.btnEditProduct.Visible = true;
+                this.btnStock.Visible = true;
             }
         }
-
-        protected void btnProduct_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("/SystemAdmin/AddProduct.aspx");
-        }
-
         protected void btnMemberInfo_Click(object sender, EventArgs e)
         {
             Response.Redirect("/SystemAdmin/MemberList.aspx");
@@ -38,6 +32,11 @@ namespace Report
         protected void btnEditProduct_Click(object sender, EventArgs e)
         {
             Response.Redirect("/SystemProduct/ProductList.aspx");
+        }
+
+        protected void btnStock_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/SystemStock/StockList.aspx");
         }
     }
 }

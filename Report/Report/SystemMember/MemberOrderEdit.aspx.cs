@@ -1,4 +1,5 @@
 ﻿using Project.ORM;
+using Project.ORM.DBModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,12 +19,13 @@ namespace Report.SystemMember
                 return;
             }
 
-            var currentAccount = this.Session["MemberInfo"].ToString();
+            var orderID = Convert.ToInt32(Request.QueryString["OrderID"]);
 
-            var orderInfo = OrderManager.GetOrderInfoByAccount(currentAccount);
+            var orderInfo = OrderManager.GetOrderInfo(orderID);
 
             this.txtAccount.Text = orderInfo.Account;
             this.txtName.Text = orderInfo.MemberName;
+            this.HiddenField1.Value = orderInfo.ProductID.ToString();
             this.txtProductName.Text = orderInfo.ProductName;
             this.txtPrice.Text = orderInfo.UnitPrice.ToString();
             this.txtQuantity.Text = orderInfo.OrderedQuantity.ToString();
@@ -34,9 +36,21 @@ namespace Report.SystemMember
 
         protected void btnConfirm_Click(object sender, EventArgs e)
         {
+            Order orderInfo = new Order()
+            {
+                Account = this.txtAccount.Text,
+                MemberName = this.txtName.Text,
+                ProductID = Convert.ToInt32(this.HiddenField1.Value),
+                ProductName = this.txtProductName.Text,
+                UnitPrice = Convert.ToDecimal(this.txtPrice.Text),
+                OrderedQuantity = Convert.ToInt32(this.txtQuantity.Text),
+                Payment = this.txtPayment.Text.ToString()
+            };
+
             var orderID = Request.QueryString["OrderID"];
 
             OrderManager.DeleteOrder(Convert.ToInt32(orderID));
+            StockManager.UpdateStockByCancel(orderInfo);
 
             Response.Redirect("/SystemOrder/OrderRecord.aspx");
         }
