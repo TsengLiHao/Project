@@ -29,7 +29,7 @@ namespace Report.SystemAdmin
                 this.txtName.Text = orderInfo.MemberName;
                 this.txtProductName.Text = orderInfo.ProductName;
                 this.txtPrice.Text = orderInfo.UnitPrice.ToString();
-                this.txtQuantity.Text = "0";
+                this.txtQuantity.Text = orderInfo.OrderedQuantity.ToString();
                 this.txtTotal.Text = (orderInfo.UnitPrice * orderInfo.OrderedQuantity).ToString();
                 this.txtPayment.Text = orderInfo.Payment;
                 this.txtDate.Text = orderInfo.OrderDate.ToString();
@@ -66,14 +66,21 @@ namespace Report.SystemAdmin
 
             var stockInfo = StockManager.GetStockInfoByProductName(orderInfo.ProductName);
 
-            if(quantity - 1 > stockInfo.CurrentQuantity)
+
+            if(quantity > stockInfo.CurrentQuantity)
             {
                 this.ltlMsg.Text = "輸入數量大於商品庫存量,請重新輸入";
                 return;
             }
 
+            var orderText = OrderManager.GetOrderInfo(Convert.ToInt32(orderIDText));
+
+            var originOrderQuantity = orderText.OrderedQuantity;
+
             OrderManager.UpdateOrder(orderInfo);
-            StockManager.UpdateStockByOrder(orderInfo);
+            StockManager.UpdateStockByRevise(orderInfo, originOrderQuantity);
+
+            Response.Redirect("/SystemOrder/AllOrderRecord.aspx");
         }
 
         protected void btnCancel_Click(object sender, EventArgs e)
@@ -83,20 +90,36 @@ namespace Report.SystemAdmin
 
         protected void btnDelete_Click(object sender, EventArgs e)
         {
+            if(string.IsNullOrEmpty(this.txtQuantity.Text))
+            {
+                this.ltlMsg.Text = "請輸入商品數量";
+                return;
+            }
+
+            string priceText = this.txtPrice.Text;
+            string quantityText = this.txtQuantity.Text;
+
+            decimal price = Convert.ToDecimal(priceText);
+            int quantity = Convert.ToInt32(quantityText);
+
             Order orderInfo = new Order()
             {
                 Account = this.txtAccount.Text,
                 MemberName = this.txtName.Text,
                 ProductName = this.txtProductName.Text,
-                UnitPrice = Convert.ToDecimal(this.txtPrice.Text),
-                OrderedQuantity = Convert.ToInt32(this.txtQuantity.Text),
-                Payment = this.txtPayment.Text.ToString()
+                UnitPrice = price,
+                OrderedQuantity = quantity,
+                Payment = this.txtPayment.Text
             };
 
             var orderID = Request.QueryString["OrderID"];
 
+            var orderText = OrderManager.GetOrderInfo(Convert.ToInt32(orderID));
+
+            var originOrderQuantity = orderText.OrderedQuantity;
+
             OrderManager.DeleteOrder(Convert.ToInt32(orderID));
-            StockManager.UpdateStockByCancel(orderInfo);
+            StockManager.UpdateStockByDelete(orderInfo, originOrderQuantity);
 
             Response.Redirect("/SystemOrder/AllOrderRecord.aspx");
         }

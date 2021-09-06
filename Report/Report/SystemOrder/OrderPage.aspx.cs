@@ -31,6 +31,8 @@ namespace Report
 
         protected void ddlProduct_TextChanged(object sender, EventArgs e)
         {
+                this.ltlMsg.Text = "";
+            
             var productInfo = ProductManager.GetProductInfoByName(ddlProduct.SelectedValue);
 
             var stockInfo = StockManager.GetStockInfoByProductName(ddlProduct.SelectedValue);
@@ -99,6 +101,7 @@ namespace Report
                 this.ltlMsg.Text = "請輸入商品數量";
                 return;
             }
+
 
             var value = this.txtValue.Text;
 

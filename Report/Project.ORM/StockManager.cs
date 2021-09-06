@@ -188,6 +188,71 @@ namespace Project.ORM
             }
         }
 
+        public static bool UpdateStockByRevise(Order orderInfo,int originallyQuantity)
+        {
+            try
+            {
+                using (ContextModel context = new ContextModel())
+                {
+                    var query =
+                        (from item in context.Stocks
+                         where item.ProductName == orderInfo.ProductName
+                         select item);
+
+                    var dbObject = query.FirstOrDefault();
+
+                    if (dbObject != null)
+                    {
+                        dbObject.OrderedQuantity -= (originallyQuantity - orderInfo.OrderedQuantity);
+                        dbObject.ChangedDate = DateTime.Now;
+                        dbObject.CurrentQuantity += (originallyQuantity - orderInfo.OrderedQuantity);
+
+                        context.SaveChanges();
+
+                        return true;
+                    }
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.WriteLog(ex);
+                return false;
+            }
+        }
+
+        public static bool UpdateStockByDelete(Order orderInfo, int originallyQuantity)
+        {
+            try
+            {
+                using (ContextModel context = new ContextModel())
+                {
+                    var query =
+                        (from item in context.Stocks
+                         where item.ProductName == orderInfo.ProductName
+                         select item);
+
+                    var dbObject = query.FirstOrDefault();
+
+                    if (dbObject != null)
+                    {
+                        dbObject.OrderedQuantity -= originallyQuantity;
+                        dbObject.ChangedDate = DateTime.Now;
+                        dbObject.CurrentQuantity += originallyQuantity;
+
+                        context.SaveChanges();
+
+                        return true;
+                    }
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.WriteLog(ex);
+                return false;
+            }
+        }
         public static bool UpdateStockByExpiration()
         {
             try

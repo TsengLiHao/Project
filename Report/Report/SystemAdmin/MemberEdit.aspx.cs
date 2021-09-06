@@ -78,6 +78,22 @@ namespace Report.SystemAdmin
                 return;
             }
 
+            var emailList = MemberManager.GetMemberEmail();
+
+            if (emailList.Contains(this.txtEmail.Text))
+            {
+                this.ltlMsg.Text = "Email名稱已重複,請重新輸入";
+                return;
+            }
+
+            var phoneList = MemberManager.GetMemberPhone();
+
+            if (phoneList.Contains(this.txtPhone.Text))
+            {
+                this.ltlMsg.Text = "手機號碼已重複,請重新輸入";
+                return;
+            }
+
             MemberManager.UpdateMember(memberInfo);
 
             Response.Redirect("/SystemAdmin/MemberList.aspx");
