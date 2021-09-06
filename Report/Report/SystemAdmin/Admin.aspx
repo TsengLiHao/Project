@@ -11,6 +11,11 @@
                 </asp:TemplateField>
                 <asp:BoundField DataField="AdminName" HeaderText="使用者" />
                 <asp:BoundField DataField="AdminAccount" HeaderText="帳號" />
+                <asp:TemplateField >
+                    <ItemTemplate>
+                       <a href="/SystemAdmin/AdminEdit.aspx?AdminID=<%# Eval("AdminID") %>">編輯</a>
+                    </ItemTemplate>
+                </asp:TemplateField>
             </Columns>
             <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
             <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />
@@ -24,7 +29,7 @@
             </asp:GridView>
         <br />
         <div align="center">
-            <asp:Button ID="btnEdit" runat="server" Text="編輯管理者資訊" OnClick="btnEdit_Click"/>
+            <asp:Button ID="btnEdit" runat="server" Text="新增管理者名稱" OnClick="btnEdit_Click"/>
             &emsp;
             <asp:Button ID="btnLogout" runat="server" Text="登出" OnClick="btnLogout_Click" />
         </div>

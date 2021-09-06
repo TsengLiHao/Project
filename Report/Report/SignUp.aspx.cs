@@ -60,13 +60,37 @@ namespace Report
                 return;
             }
 
+            var accountList = MemberManager.GetMemberAccount();
+
+            if (accountList.Contains(this.txtAccount.Text))
+            {
+                this.ltlMsg.Text = "帳號名稱已重複,請重新輸入";
+                return;
+            }
+
+            var emailList = MemberManager.GetMemberEmail();
+
+            if (emailList.Contains(this.txtEmail.Text))
+            {
+                this.ltlMsg.Text = "Email名稱已重複,請重新輸入";
+                return;
+            }
+
+            var phoneList = MemberManager.GetMemberPhone();
+
+            if (phoneList.Contains(this.txtPhone.Text))
+            {
+                this.ltlMsg.Text = "手機號碼已重複,請重新輸入";
+                return;
+            }
+
             MemberManager.CreateMember(memberInfo);
 
             var member = MemberManager.GetMemberInfoByAccount(memberInfo.Account);
 
             this.Session["MemberInfo"] = member.Account;
 
-            Response.Redirect("/SystemMember/MemberInfo.aspx");
+            Response.Redirect("/SystemMember/Member.aspx");
         }
 
         protected void btnClear_Click(object sender, EventArgs e)

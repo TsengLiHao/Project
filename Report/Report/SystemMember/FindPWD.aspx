@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="MemberDetail.aspx.cs" Inherits="Report.SystemMember.MemberDetail" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="FindPWD.aspx.cs" Inherits="Report.SystemMember.FindPWD" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -13,7 +13,7 @@
         }
     </style>
     
-        <h1 align="center">Edit</h1>
+        <h1 align="center">Verify</h1>
         <br />
         <div id="divText" align="center">
             <asp:Label ID="Label1" runat="server" CssClass="lbl" Text="帳號:"></asp:Label>
@@ -31,10 +31,8 @@
         <div id="divButton" align="center">
             <asp:Literal ID="ltlMsg" runat="server"></asp:Literal>
             <br />
-            <asp:Button ID="btnConfirm" runat="server" Text="確認修改" OnClick="btnConfirm_Click"/>
+            <asp:Button ID="btnConfirm" runat="server" Text="送出" OnClick="btnConfirm_Click"/>
             &emsp;
-            <asp:Button ID="btnChangePWD" runat="server" Text="變更密碼" OnClick="btnChangePWD_Click"/> 
-            &emsp;
-            <asp:Button ID="btnCancel" runat="server" Text="取消" OnClick="btnCancel_Click" />
+            <asp:Button ID="btnCancel" runat="server" Text="取消" OnClick="btnCancel_Click"/>
         </div>
 </asp:Content>

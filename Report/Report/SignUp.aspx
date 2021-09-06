@@ -22,7 +22,7 @@
             <asp:Label ID="Label2" runat="server" CssClass="lbl" Text="地址:"></asp:Label>
             <asp:TextBox ID="txtAdress" runat="server" CssClass="txt"></asp:TextBox><br />
             <asp:Label ID="Label3" runat="server" CssClass="lbl" Text="電話(手機):"></asp:Label>
-            <asp:TextBox ID="txtPhone" runat="server" CssClass="txt" TextMode="Phone"></asp:TextBox><br />
+            <asp:TextBox ID="txtPhone" runat="server" CssClass="txt" TextMode="Number"></asp:TextBox><br />
             <asp:Label ID="Label4" runat="server" CssClass="lbl" Text="Email:"></asp:Label>
             <asp:TextBox ID="txtEmail" runat="server" CssClass="txt" TextMode="Email"></asp:TextBox><br />
             <asp:Label ID="Label5" runat="server" CssClass="lbl" Text="帳號:"></asp:Label>

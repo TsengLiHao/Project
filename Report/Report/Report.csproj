@@ -51,6 +51,9 @@
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -92,6 +95,9 @@
     <Content Include="css\bootstrap.rtl.min.css" />
     <Content Include="Global.asax" />
     <Content Include="Default.aspx" />
+    <Content Include="image\cheese.jpg" />
+    <Content Include="image\cheese2.jpg" />
+    <Content Include="image\cheese3.jpg" />
     <Content Include="image\login.png" />
     <Content Include="image\logo.jpg" />
     <Content Include="js\bootstrap.bundle.js" />
@@ -101,7 +107,9 @@
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="Login.aspx" />
+    <Content Include="SystemAdmin\AdminEdit.aspx" />
     <Content Include="SystemAdmin\AllOrderEdit.aspx" />
+    <Content Include="SystemMember\FindPWD.aspx" />
     <Content Include="SystemProduct\EditProduct.aspx" />
     <Content Include="SystemOrder\AllOrderRecord.aspx" />
     <Content Include="SystemMember\MemberOrderEdit.aspx" />
@@ -150,12 +158,26 @@
     <Compile Include="Main.Master.designer.cs">
       <DependentUpon>Main.Master</DependentUpon>
     </Compile>
+    <Compile Include="SystemAdmin\AdminEdit.aspx.cs">
+      <DependentUpon>AdminEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SystemAdmin\AdminEdit.aspx.designer.cs">
+      <DependentUpon>AdminEdit.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SystemAdmin\AllOrderEdit.aspx.cs">
       <DependentUpon>AllOrderEdit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="SystemAdmin\AllOrderEdit.aspx.designer.cs">
       <DependentUpon>AllOrderEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SystemMember\FindPWD.aspx.cs">
+      <DependentUpon>FindPWD.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SystemMember\FindPWD.aspx.designer.cs">
+      <DependentUpon>FindPWD.aspx</DependentUpon>
     </Compile>
     <Compile Include="SystemProduct\EditProduct.aspx.cs">
       <DependentUpon>EditProduct.aspx</DependentUpon>

@@ -94,7 +94,7 @@ namespace Report
 
         protected void btnForgetPWD_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("/SystemMember/FindPWD.aspx");
         }
 
         protected void btnSignUp_Click(object sender, EventArgs e)

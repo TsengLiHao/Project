@@ -74,6 +74,12 @@ namespace Report.SystemAdmin
                 Photo = this.fileUpload.FileName
             };
 
+            if (firstDate > DateTime.Today)
+            {
+                this.ltlMsg.Text = "輸入的製造日期不合理";
+                return;
+            }
+
             if (this.fileUpload.HasFile && FileHelper.ValidFileUpload(this.fileUpload, out List<string> tempList))
             {
                 string saveFileName = FileHelper.GetNewFileName(this.fileUpload);

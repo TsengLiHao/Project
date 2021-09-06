@@ -64,6 +64,12 @@ namespace Report.SystemAdmin
                 return;
             }
 
+            if (firstDate > DateTime.Today)
+            {
+                this.ltlMsg.Text = "輸入的製造日期不合理";
+                return;
+            }
+
             if (Convert.ToInt32(this.txtDiscontinued.Text) < 0 || Convert.ToInt32(this.txtDiscontinued.Text) > 1)
             {
                 this.ltlMsg.Text = "商品狀態請輸入整數 0 或 1";

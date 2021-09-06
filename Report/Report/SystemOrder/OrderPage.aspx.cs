@@ -33,7 +33,7 @@ namespace Report
         {
             var productInfo = ProductManager.GetProductInfoByName(ddlProduct.SelectedValue);
 
-            var stockInfo = StockManager.GetStockInfoByProductName(productInfo.ProductName);
+            var stockInfo = StockManager.GetStockInfoByProductName(ddlProduct.SelectedValue);
 
             if (productInfo != null)
             {
@@ -65,6 +65,10 @@ namespace Report
                 if(stockInfo.CurrentQuantity <= 5)
                 {
                     this.ltlProductStatus.Text = $"此商品現在剩餘數量 : {stockInfo.CurrentQuantity}";
+                }
+                else
+                {
+                    this.ltlProductStatus.Text = "";
                 }
 
                 if (productInfo.Discontinued == 0 || stockInfo.CurrentQuantity == 0 || stockInfo.ProductStatus == 0)

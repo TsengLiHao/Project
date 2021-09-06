@@ -7,8 +7,8 @@
             <asp:BoundField DataField="ProductName" HeaderText="商品名稱" />
             <asp:BoundField DataField="UnitPrice" HeaderText="單價" />
             <asp:BoundField DataField="WeightPerUnit" HeaderText="重量" />
-            <asp:BoundField DataField="ManufactureDate" HeaderText="製造日期" />
-            <asp:BoundField DataField="ExpirationDate" HeaderText="有效日期" />
+            <asp:BoundField DataField="ManufactureDate" HeaderText="製造日期" DataFormatString="{0:yyyy/MM/dd}" />
+            <asp:BoundField DataField="ExpirationDate" HeaderText="有效日期" DataFormatString="{0:yyyy/MM/dd}"/>
             <asp:BoundField DataField="Body" HeaderText="其他商品資訊" />
             <asp:BoundField DataField="Discontinued" HeaderText="商品狀態 (0 : 下架中 ; 1 : 上架中)" />
             <asp:TemplateField HeaderText="商品照">
