@@ -36,65 +36,54 @@ namespace Report
             }
 
             var member = MemberManager.GetMemberInfoByAccount(account);
+            var admin = AdminManager.GetAdminInfoByAccount(account);
 
             if (member == null)
             {
+                if(admin != null)
+                {
+                    if (string.Compare(admin.AdminAccount, account, true) == 0 && string.Compare(admin.AdminPWD, pwd, false) == 0)
+                    {
+                        this.Session["AdminInfo"] = admin.AdminAccount;
+
+                        Response.Redirect("/SystemAdmin/Admin.aspx");
+                    }
+                    else
+                    {
+                        ltlMsg.Text = "登入失敗,請確認帳號密碼是否正確輸入";
+                        return;
+                    }
+                }
                 ltlMsg.Text = "帳號不存在或輸入錯誤";
                 return;
             }
-
-            if (string.Compare(member.Account, account, true) == 0 && string.Compare(member.PWD, pwd, false) == 0)
-            {
-                this.Session["MemberInfo"] = member.Account;
-
-                Response.Redirect("/SystemMember/Member.aspx");
-            }
-            else
-            {
-                ltlMsg.Text = "登入失敗,請確認帳號密碼是否正確輸入";
-                return;
-            }
-        }
-
-        protected void btnAdmin_Click(object sender, EventArgs e)
-        {
-            var account = txtAccount.Text;
-            var pwd = txtPWD.Text;
-
-            if (string.IsNullOrWhiteSpace(account) ||
-                string.IsNullOrWhiteSpace(pwd))
-            {
-                ltlMsg.Text = "帳號密碼不能為空";
-                return;
-            }
-
-
-            var admin = AdminManager.GetAdminInfoByAccount(account);
-
 
             if (admin == null)
             {
-                ltlMsg.Text = "帳號不存在或輸入錯誤";
-                return;
-            }
+                if (member != null)
+                {
+                    if (string.Compare(member.Account, account, true) == 0 && string.Compare(member.PWD, pwd, false) == 0)
+                    {
+                        this.Session["MemberInfo"] = member.Account;
 
-
-            if (string.Compare(admin.AdminAccount, account, true) == 0 && string.Compare(admin.AdminPWD, pwd, false) == 0)
-            {
-                this.Session["AdminInfo"] = admin.AdminAccount;
-
-                Response.Redirect("/SystemAdmin/Admin.aspx");
-            }
-            else
-            {
-                ltlMsg.Text = "登入失敗,請確認帳號密碼是否正確輸入";
-                return;
+                        Response.Redirect("/SystemMember/Member.aspx");
+                    }
+                    else
+                    {
+                        ltlMsg.Text = "登入失敗,請確認帳號密碼是否正確輸入";
+                        return;
+                    }
+                }
+                else
+                {
+                    ltlMsg.Text = "帳號不存在或輸入錯誤";
+                    return;
+                }
             }
         }
-
         protected void btnForgetPWD_Click(object sender, EventArgs e)
         {
-            Response.Redirect("/SystemMember/FindPWD.aspx");
+            Response.Redirect("/FindPWD.aspx");
         }
 
         protected void btnSignUp_Click(object sender, EventArgs e)

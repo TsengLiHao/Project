@@ -30,10 +30,13 @@
 
         </asp:GridView>
         <div align="center">
+            <span style="color:red">
             <asp:Literal ID="ltlMsg" runat="server"></asp:Literal>
+            </span>
             <br />
-            <asp:Button ID="btnEdit" runat="server" Text="變更個人資訊" OnClick="btnEdit_Click"/>
+            <br />
+            <asp:Button ID="btnEdit" runat="server" Text="變更個人資訊" OnClick="btnEdit_Click" CssClass="btn btn-dark"/>
             &emsp;
-            <asp:Button ID="btnLogout" runat="server" Text="登出" OnClick="btnLogout_Click" />
+            <asp:Button ID="btnLogout" runat="server" Text="登出" OnClick="btnLogout_Click" CssClass="btn btn-dark"/>
         </div>
 </asp:Content>

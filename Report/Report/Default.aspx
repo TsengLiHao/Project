@@ -5,16 +5,16 @@
     <table align="left">
         <tr>
             <td>
-                <asp:Button ID="btnMemberInfo" runat="server" Text="會員資訊" Visible="false" OnClick="btnMemberInfo_Click"/>
+                &emsp;<asp:Button ID="btnMemberInfo" runat="server" Text="會員資訊" Visible="false" OnClick="btnMemberInfo_Click" CssClass="btn btn-dark"/>
                 <br />
                 <br />
-                <asp:Button ID="btnEditProduct" runat="server" Text="管理商品" Visible="false" OnClick="btnEditProduct_Click"/>
+                &emsp;<asp:Button ID="btnEditProduct" runat="server" Text="管理商品" Visible="false" OnClick="btnEditProduct_Click" CssClass="btn btn-dark"/>
                 <br />
                 <br />
-                <asp:Button ID="btnOrderList" runat="server" Text="管理訂單" Visible="false" OnClick="btnOrderList_Click"/>
+                &emsp;<asp:Button ID="btnOrderList" runat="server" Text="管理訂單" Visible="false" OnClick="btnOrderList_Click" CssClass="btn btn-dark"/>
                 <br />
                 <br />
-                <asp:Button ID="btnStock" runat="server" Text="管理庫存" Visible="false" OnClick="btnStock_Click"/>
+                &emsp;<asp:Button ID="btnStock" runat="server" Text="管理庫存" Visible="false" OnClick="btnStock_Click" CssClass="btn btn-dark"/>
                 <br />
                 <br />
             </td>
@@ -31,22 +31,22 @@
             <div class="carousel-item active">
                 <img src="image/cheese.jpg" class="d-block w-100 h-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
-                    <h5>First slide label</h5>
-                    <p>Some representative placeholder content for the first slide.</p>
+                    <h5></h5>
+                    <p></p>
                 </div>
             </div>
             <div class="carousel-item">
                 <img src="image/cheese2.jpg" class="d-block w-100 h-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
-                    <h5>Second slide label</h5>
-                    <p>Some representative placeholder content for the second slide.</p>
+                    <h5></h5>
+                    <p></p>
                 </div>
             </div>
             <div class="carousel-item">
                 <img src="image/cheese3.jpg" class="d-block w-100 h-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
-                    <h5>Third slide label</h5>
-                    <p>Some representative placeholder content for the third slide.</p>
+                    <h5></h5>
+                    <p></p>
                 </div>
             </div>
         </div>

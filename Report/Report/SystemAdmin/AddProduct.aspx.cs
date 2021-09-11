@@ -24,11 +24,17 @@ namespace Report.SystemAdmin
 
         protected void btnConfirm_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(this.txtName.Text) || string.IsNullOrEmpty(this.txtPrice.Text) || string.IsNullOrEmpty(this.txtWeight.Text) || string.IsNullOrEmpty(this.txtFirstDate.Text) || string.IsNullOrEmpty(this.txtLastDate.Text))
+            {
+                ltlMsg.Text = "輸入項目不能為空白";
+                return;
+            }
+
             string priceText = this.txtPrice.Text;
             string weightText = this.txtWeight.Text;
             string firstText = this.txtFirstDate.Text;
             string lastText = this.txtLastDate.Text;
-            string disText = this.txtDiscontinued.Text;
+            string disText = this.ddlDiscontinued.SelectedValue;
 
             decimal price = Convert.ToDecimal(priceText);
             decimal weight = Convert.ToDecimal(weightText);
@@ -58,9 +64,9 @@ namespace Report.SystemAdmin
                 newProduct.Photo = saveFileName;
             }
 
-            if (string.IsNullOrEmpty(this.txtName.Text) || string.IsNullOrEmpty(this.txtPrice.Text) || string.IsNullOrEmpty(this.txtWeight.Text) || string.IsNullOrEmpty(this.txtFirstDate.Text) || string.IsNullOrEmpty(this.txtLastDate.Text) || string.IsNullOrEmpty(this.txtDiscontinued.Text))
+            if(price < 0 || weight < 0 )
             {
-                ltlMsg.Text = "輸入項目不能為空白";
+                this.ltlMsg.Text = "價錢或重量不可小於0";
                 return;
             }
 
@@ -70,9 +76,17 @@ namespace Report.SystemAdmin
                 return;
             }
 
-            if (Convert.ToInt32(this.txtDiscontinued.Text) < 0 || Convert.ToInt32(this.txtDiscontinued.Text) > 1)
+            TimeSpan day = lastDate.Subtract(firstDate);
+            if (day.TotalDays <= 14)
             {
-                this.ltlMsg.Text = "商品狀態請輸入整數 0 或 1";
+                this.ltlMsg.Text = "輸入的時間範圍過小";
+                return;
+            }
+
+            TimeSpan day2 = lastDate.Subtract(DateTime.Today);
+            if (day.TotalDays <= 14)
+            {
+                this.ltlMsg.Text = "輸入的日期時間範圍過小";
                 return;
             }
 
@@ -81,6 +95,7 @@ namespace Report.SystemAdmin
                 ltlMsg.Text = "請上傳商品照片";
                 return;
             }
+
             var stockInfo = StockManager.GetStockInfoByProductName(this.txtName.Text);
             if(stockInfo == null)
             {

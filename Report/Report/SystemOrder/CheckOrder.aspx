@@ -28,6 +28,8 @@
             <asp:TextBox ID="txtPhone" runat="server" CssClass="txt" TextMode="Number"></asp:TextBox><br />
             <asp:Label ID="Label5" runat="server" CssClass="lbl" Text="地址:"></asp:Label>
             <asp:TextBox ID="txtAdress" runat="server" CssClass="txt" ></asp:TextBox><br />
+            <br />
+            <h2>Order Information</h2>
             <asp:Label ID="Label6" runat="server" CssClass="lbl" Text="商品名稱:"></asp:Label>
             <asp:TextBox ID="txtProductName" runat="server" CssClass="txt" Enabled="false"></asp:TextBox><br />
            <asp:Label ID="Label7" runat="server" CssClass="lbl" Text="單價:"></asp:Label>
@@ -41,10 +43,13 @@
         </div>
             <br />
         <div id="divButton" align="center">
+            <span style="color:red">
             <asp:Literal ID="ltlMsg" runat="server"></asp:Literal>
+            </span>
             <br />
-            <asp:Button ID="btnConfirm" runat="server" Text="確認購買" OnClick="btnConfirm_Click"/>
+            <br />
+            <asp:Button ID="btnConfirm" runat="server" Text="確認購買" OnClick="btnConfirm_Click" CssClass="btn btn-dark"/>
             &emsp;
-            <asp:Button ID="btnCancel" runat="server" Text="取消" OnClick="btnCancel_Click"/> 
+            <asp:Button ID="btnCancel" runat="server" Text="取消" OnClick="btnCancel_Click" CssClass="btn btn-dark"/> 
         </div>
 </asp:Content>

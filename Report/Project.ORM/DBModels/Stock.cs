@@ -22,5 +22,7 @@ namespace Project.ORM.DBModels
         public int ProductStatus { get; set; }
 
         public DateTime ChangedDate { get; set; }
+
+        public int? ExpirationQuantity { get; set; }
     }
 }

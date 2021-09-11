@@ -81,6 +81,7 @@ namespace Project.ORM
                 {
                     stockInfo.ChangedDate = DateTime.Now;
                     context.Stocks.Add(stockInfo);
+                    stockInfo.ExpirationQuantity = 0;
 
                     context.SaveChanges();
                 }
@@ -105,6 +106,7 @@ namespace Project.ORM
                         dbObject.ProductName = stockInfo.ProductName;
                         dbObject.CurrentQuantity = stockInfo.CurrentQuantity;
                         dbObject.OrderedQuantity = stockInfo.OrderedQuantity;
+                        dbObject.ExpirationQuantity = stockInfo.ExpirationQuantity;
                         dbObject.ProductStatus = stockInfo.ProductStatus;
                         dbObject.ChangedDate = DateTime.Now;
 
@@ -253,7 +255,7 @@ namespace Project.ORM
                 return false;
             }
         }
-        public static bool UpdateStockByExpiration()
+        public static bool UpdateStockByExpiration(string currentProduct, int currentQuantity)
         {
             try
             {
@@ -261,13 +263,16 @@ namespace Project.ORM
                 {
                     var query =
                         (from item in context.Stocks
+                         where item.ProductName == currentProduct
                          select item);
 
                     var dbObject = query.FirstOrDefault();
 
                     if (dbObject != null)
                     {
+                        dbObject.ExpirationQuantity += currentQuantity;
                         dbObject.CurrentQuantity = 0;
+                        dbObject.ProductStatus = 0;
 
                         context.SaveChanges();
 

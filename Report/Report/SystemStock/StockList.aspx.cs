@@ -1,4 +1,5 @@
 ﻿using Project.ORM;
+using Project.ORM.DBModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +24,16 @@ namespace Report.SystemStock
             gvStockList.DataSource = stockList;
             gvStockList.DataBind();
 
+            //Product productInfo = new Product();
+            //Stock stockInfo = new Stock();
+
+            //TimeSpan day = productInfo.ExpirationDate.Subtract(DateTime.Today);
+
+            //if (day.TotalDays < 14)
+            //{
+            //    stockInfo.CurrentQuantity = 0;
+            //    stockInfo.ExpirationQuantity += stockInfo.CurrentQuantity;
+            //}
         }
 
         protected void btnEdit_Click(object sender, EventArgs e)

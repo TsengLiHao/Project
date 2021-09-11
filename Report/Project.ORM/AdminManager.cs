@@ -74,24 +74,7 @@ namespace Project.ORM
                 return null;
             }
         }
-        public static void CreateAdmin(AdminInfo adminInfo)
-        {
-            try
-            {
-                using (ContextModel context = new ContextModel())
-                {
-                    adminInfo.AdminID = Guid.NewGuid();
-                    adminInfo.UserLevel = 0;
-                    context.AdminInfoes.Add(adminInfo);
-
-                    context.SaveChanges();
-                }
-            }
-            catch (Exception ex)
-            {
-                Logger.WriteLog(ex);
-            }
-        }
+        
         public static bool UpdateAdmin(AdminInfo adminInfo)
         {
             try

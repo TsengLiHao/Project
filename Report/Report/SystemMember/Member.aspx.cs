@@ -14,28 +14,19 @@ namespace Report.SystemMember
         private const string _orderName = "orderKey";
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (this.Session["MemberInfo"] == null)
+            if (!IsPostBack)
             {
-                Response.Redirect("/Login.aspx");
-                return;
-            }
+                if (this.Session["MemberInfo"] == null)
+                {
+                    Response.Redirect("/Login.aspx");
+                    return;
+                }
 
-            string account = this.Session["MemberInfo"].ToString();
+                string account = this.Session["MemberInfo"].ToString();
 
-            var Member = MemberManager.GetMemberInfoByAccount(account);
+                var Member = MemberManager.GetMemberInfoByAccount(account);
 
-            MemberInfoModel model = new MemberInfoModel();
-
-            model.MemberID = Member.MemberID;
-            model.Account = Member.Account;
-            model.MemberName = Member.MemberName;
-            model.Email = Member.Email;
-            model.MobilePhone = Member.MobilePhone;
-            model.Adress = Member.Adress;
-
-            if (this.Session["MemberInfo"] != null)
-            {
-                var memberList = MemberManager.GetMemberList(model.MemberID);
+                var memberList = MemberManager.GetMemberList(Member.MemberID);
 
                 if (memberList.Count > 0)
                 {
@@ -43,19 +34,7 @@ namespace Report.SystemMember
                     this.gvMemberList.DataBind();
                 }
                 else
-                    ltlMsg.Text = "NO DATA";
-            }
-            else if (this.Session["AdminInfo"] != null)
-            {
-                var allMemberList = MemberManager.GetAllMemberList();
-
-                if (allMemberList.Count > 0)
-                {
-                    this.gvMemberList.DataSource = allMemberList;
-                    this.gvMemberList.DataBind();
-                }
-                else
-                    ltlMsg.Text = "NO DATA";
+                    ltlMsg.Text = "沒有訂單紀錄";
             }
         }
 

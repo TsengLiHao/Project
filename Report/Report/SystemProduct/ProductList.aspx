@@ -37,10 +37,12 @@
 
         </asp:GridView>
         <div align="center">
+            <span style="color: red">
             <asp:Literal ID="ltlMsg" runat="server"></asp:Literal>
+            </span>
             <br />
-            <asp:Button ID="btnCreate" runat="server" Text="新增商品" OnClick="btnCreate_Click"/>
+            <asp:Button ID="btnCreate" runat="server" Text="新增商品" OnClick="btnCreate_Click" CssClass="btn btn-dark"/>
             &emsp;
-            <asp:Button ID="btnBack" runat="server" Text="回首頁" OnClick="btnBack_Click"/>
+            <asp:Button ID="btnBack" runat="server" Text="回首頁" OnClick="btnBack_Click" CssClass="btn btn-dark"/>
         </div>
 </asp:Content>

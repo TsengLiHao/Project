@@ -15,7 +15,7 @@ namespace Report.SystemOrder
         {
             if(this.Session["MemberInfo"] == null && this.Session["AdminInfo"] == null)
             {
-                this.ltlMsg.Text = "No Record";
+                this.ltlMsg.Text = "沒有訂單紀錄";
                 return;
             }
 
@@ -32,11 +32,17 @@ namespace Report.SystemOrder
                 }
                 else
                 {
-                    this.ltlMsg.Text = "No Record";
+                    this.ltlMsg.Text = "沒有訂單紀錄";
                     return;
                 }
             }
-            
+            else
+            {
+                this.ltlMsg.Text = "會員個人訂單紀錄頁面";
+                return;
+            }
+
+
         }
 
         protected void btnBack_Click(object sender, EventArgs e)

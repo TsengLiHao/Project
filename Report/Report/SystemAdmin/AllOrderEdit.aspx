@@ -29,7 +29,7 @@
             <asp:Label ID="Label8" runat="server" CssClass="lbl" Text="數量:"></asp:Label>
             <asp:TextBox ID="txtQuantity" runat="server" CssClass="txt" TextMode="Number"></asp:TextBox>
             <br />
-            <asp:Button ID="btnCal" runat="server" Text="計算總計金額" OnClick="btnCal_Click" Width="200"/>
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<asp:Button ID="btnCal" runat="server" Text="計算總計金額" OnClick="btnCal_Click" Width="200"/>
             <br />
             <asp:Label ID="Label9" runat="server" CssClass="lbl" Text="總計金額:"></asp:Label>
             <asp:TextBox ID="txtTotal" runat="server" CssClass="txt" Enabled="false"></asp:TextBox><br />
@@ -40,12 +40,15 @@
         </div>
             <br />
         <div id="divButton" align="center">
+            <span style="color:red">
             <asp:Literal ID="ltlMsg" runat="server"></asp:Literal>
+            </span>
             <br />
-            <asp:Button ID="btnConfirm" runat="server" Text="確認修改" OnClick="btnConfirm_Click"/>
+            <br />
+            <asp:Button ID="btnConfirm" runat="server" Text="確認修改" OnClick="btnConfirm_Click" CssClass="btn btn-dark"/>
             &emsp;
-            <asp:Button ID="btnDelete" runat="server" Text="刪除訂單" OnClick="btnDelete_Click"/>
+            <asp:Button ID="btnDelete" runat="server" Text="刪除訂單" OnClick="btnDelete_Click" OnClientClick="return confirm('確定刪除這筆訂單嗎?')" CssClass="btn btn-dark"/>
             &emsp;
-            <asp:Button ID="btnCancel" runat="server" Text="取消" OnClick="btnCancel_Click"/> 
+            <asp:Button ID="btnCancel" runat="server" Text="取消" OnClick="btnCancel_Click" CssClass="btn btn-dark"/> 
         </div>
 </asp:Content>

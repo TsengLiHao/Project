@@ -23,13 +23,6 @@ namespace Report.SystemAdmin
 
             var Admin = AdminManager.GetAdminInfoByAccount(account);
 
-            AdminInfoModel model = new AdminInfoModel();
-
-            model.AdminID = Admin.AdminID;
-            model.AdminAccount = Admin.AdminAccount;
-            model.AdminName = Admin.AdminName;
-
-
             var AdminList = AdminManager.GetAdminList(Admin.AdminID);
 
             if (AdminList.Count > 0)
@@ -37,11 +30,8 @@ namespace Report.SystemAdmin
                 this.gvAdminList.DataSource = AdminList;
                 this.gvAdminList.DataBind();
             }
-        }
-
-        protected void btnEdit_Click(object sender, EventArgs e)
-        {
-
+            else
+                ltlMsg.Text = "NO DATA";
         }
         protected void btnLogout_Click(object sender, EventArgs e)
         {

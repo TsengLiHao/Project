@@ -7,6 +7,7 @@
                 <asp:BoundField DataField="ProductName" HeaderText="商品名稱" />
                 <asp:BoundField DataField="CurrentQuantity" HeaderText="庫存數量" />
                 <asp:BoundField DataField="OrderedQuantity" HeaderText="已訂購商品數量" />
+                <asp:BoundField DataField="ExpirationQuantity" HeaderText="已過期商品數量" />
                 <asp:BoundField DataField="ProductStatus" HeaderText="商品狀態 : (0 : 已過期 ; 1 : 良好)" />
                 <asp:BoundField DataField="ChangedDate" HeaderText="變更日期" />
                 <asp:TemplateField>
@@ -28,10 +29,12 @@
 
         </asp:GridView>
         <div align="center">
+            <span style="color: red">
             <asp:Literal ID="ltlMsg" runat="server"></asp:Literal>
+            </span>
             <br />
-            <asp:Button ID="btnEdit" runat="server" Text="新增庫存商品" OnClick="btnEdit_Click"/>
+            <asp:Button ID="btnEdit" runat="server" Text="新增庫存商品" OnClick="btnEdit_Click" CssClass="btn btn-dark"/>
             &emsp;
-            <asp:Button ID="btnLogout" runat="server" Text="回首頁" OnClick="btnLogout_Click"/>
+            <asp:Button ID="btnLogout" runat="server" Text="回首頁" OnClick="btnLogout_Click" CssClass="btn btn-dark"/>
         </div>
 </asp:Content>

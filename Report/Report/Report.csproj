@@ -109,7 +109,7 @@
     <Content Include="Login.aspx" />
     <Content Include="SystemAdmin\AdminEdit.aspx" />
     <Content Include="SystemAdmin\AllOrderEdit.aspx" />
-    <Content Include="SystemMember\FindPWD.aspx" />
+    <Content Include="FindPWD.aspx" />
     <Content Include="SystemProduct\EditProduct.aspx" />
     <Content Include="SystemOrder\AllOrderRecord.aspx" />
     <Content Include="SystemMember\MemberOrderEdit.aspx" />
@@ -172,11 +172,11 @@
     <Compile Include="SystemAdmin\AllOrderEdit.aspx.designer.cs">
       <DependentUpon>AllOrderEdit.aspx</DependentUpon>
     </Compile>
-    <Compile Include="SystemMember\FindPWD.aspx.cs">
+    <Compile Include="FindPWD.aspx.cs">
       <DependentUpon>FindPWD.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="SystemMember\FindPWD.aspx.designer.cs">
+    <Compile Include="FindPWD.aspx.designer.cs">
       <DependentUpon>FindPWD.aspx</DependentUpon>
     </Compile>
     <Compile Include="SystemProduct\EditProduct.aspx.cs">

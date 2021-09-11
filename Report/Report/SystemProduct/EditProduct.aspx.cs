@@ -34,14 +34,14 @@ namespace Report.SystemAdmin
                     this.txtFirstDate.Text = productInfo.ManufactureDate.ToString();
                     this.txtLastDate.Text = productInfo.ExpirationDate.ToString();
                     this.txtInfo.Text = productInfo.Body;
-                    this.txtDiscontinued.Text = productInfo.Discontinued.ToString();
+                    this.ddlDiscontinued.SelectedValue = productInfo.Discontinued.ToString();
                 }
             }
         }
 
         protected void btnConfirm_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(this.txtName.Text) || string.IsNullOrEmpty(this.txtPrice.Text) || string.IsNullOrEmpty(this.txtWeight.Text) || string.IsNullOrEmpty(this.txtFirstDate.Text) || string.IsNullOrEmpty(this.txtLastDate.Text) || string.IsNullOrEmpty(this.txtDiscontinued.Text))
+            if (string.IsNullOrEmpty(this.txtName.Text) || string.IsNullOrEmpty(this.txtPrice.Text) || string.IsNullOrEmpty(this.txtWeight.Text) || string.IsNullOrEmpty(this.txtFirstDate.Text) || string.IsNullOrEmpty(this.txtLastDate.Text) )
             {
                 ltlMsg.Text = "輸入項目不能為空白";
                 return;
@@ -52,7 +52,7 @@ namespace Report.SystemAdmin
             string weightText = this.txtWeight.Text;
             string firstText = this.txtFirstDate.Text;
             string lastText = this.txtLastDate.Text;
-            string disText = this.txtDiscontinued.Text;
+            string disText = this.ddlDiscontinued.SelectedValue;
 
             int productID = Convert.ToInt32(productIDText);
             decimal price = Convert.ToDecimal(priceText);
@@ -74,9 +74,29 @@ namespace Report.SystemAdmin
                 Photo = this.fileUpload.FileName
             };
 
+            if (price < 0 || weight < 0)
+            {
+                this.ltlMsg.Text = "價錢或重量不可小於0";
+                return;
+            }
+
             if (firstDate > DateTime.Today)
             {
                 this.ltlMsg.Text = "輸入的製造日期不合理";
+                return;
+            }
+
+            TimeSpan day = lastDate.Subtract(firstDate);
+            if (day.TotalDays <= 14)
+            {
+                this.ltlMsg.Text = "輸入的日期時間範圍過小";
+                return;
+            }
+
+            TimeSpan day2 = lastDate.Subtract(DateTime.Today);
+            if (day.TotalDays <= 14)
+            {
+                this.ltlMsg.Text = "輸入的日期時間範圍過小";
                 return;
             }
 

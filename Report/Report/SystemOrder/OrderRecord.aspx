@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:GridView ID="gvOrderList" runat="server" AutoGenerateColumns="False" CellPadding="3" align="center" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellSpacing="2" >
+    <asp:GridView ID="gvOrderList" runat="server" AutoGenerateColumns="False" CellPadding="3" align="center" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellSpacing="2">
             <Columns>
                 <asp:BoundField DataField="Account" HeaderText="帳號" />
                 <asp:BoundField DataField="MemberName" HeaderText="姓名" />
@@ -33,11 +33,13 @@
             <SortedDescendingCellStyle BackColor="#F1E5CE" />
             <SortedDescendingHeaderStyle BackColor="#93451F" />
 
-        </asp:GridView>
-        <div align="center">
+    </asp:GridView>
+    <div align="center">
+        <span style="color: red">
             <asp:Literal ID="ltlMsg" runat="server"></asp:Literal>
-            <br />
-            <asp:Button ID="btnBack" runat="server" Text="回首頁" OnClick="btnBack_Click"/>
-        </div>
+        </span>
+        <br />
+        <asp:Button ID="btnBack" runat="server" Text="回首頁" OnClick="btnBack_Click" CssClass="btn btn-dark"/>
+    </div>
         
 </asp:Content>

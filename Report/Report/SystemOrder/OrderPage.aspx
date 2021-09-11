@@ -4,10 +4,10 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <script src="Script/jquery-3.6.0.min.js"></script>
     <style>
-        th{
-            display:inline-block;
+        th {
+            display: inline-block;
             width: 120px;
-            position:fixed;
+            position: fixed;
         }
     </style>
  
@@ -52,18 +52,22 @@
                                 </tr>
                                 <tr>
                                     <th>其他商品資訊:</th>
-                                    <td style="padding-left:130px">
+                                    <td style="padding-left: 130px">
                                         <asp:TextBox ID="TextBox1" runat="server" TextMode="MultiLine" Width="250" Height="100" ReadOnly="true" BackColor="antiquewhite" BorderColor="antiquewhite"></asp:TextBox>
                                     </td>
 
-                            </table></asp:PlaceHolder>
+                            </table>
+                        </asp:PlaceHolder>
+                        <span style="color: red">
                             <asp:Literal ID="ltlProductStatus" runat="server"></asp:Literal>
+                        </span>
+                        <br />
                     </div>
                 </td>
                 <td align="center" valign="top">
                     <b>輸入數量:</b>
-                    <asp:TextBox ID="txtValue" runat="server"></asp:TextBox>
-                   <br />
+                    <asp:TextBox ID="txtValue" runat="server" TextMode="Number"></asp:TextBox>
+                    <br />
                     <br>
                     <b >選擇付款方式:</b>
                     <asp:RadioButtonList ID="rblPayment" runat="server">
@@ -71,16 +75,19 @@
                         <asp:ListItem Value="1" Text="信用卡"></asp:ListItem>
                     </asp:RadioButtonList>
                     <br />
-                    <asp:Literal ID="ltlMsg" runat="server"></asp:Literal>
+                    <span style="color: red">
+                        <asp:Literal ID="ltlMsg" runat="server"></asp:Literal>
+                    </span>
+                    <br />
                 </td>
             </tr>
         </table>
     </div>
     <br />
     <div id="divButton" align="center">
-        <asp:Button ID="btnConfirm" runat="server" Text="確認購買" OnClick="btnConfirm_Click"/>
+        <asp:Button ID="btnConfirm" runat="server" Text="確認購買" OnClick="btnConfirm_Click" CssClass="btn btn-dark"/>
         &emsp;
-            <asp:Button ID="btnCancel" runat="server" Text="取消" OnClick="btnCancel_Click"/>
+            <asp:Button ID="btnCancel" runat="server" Text="回首頁" OnClick="btnCancel_Click" CssClass="btn btn-dark"/>
         
     </div>
 

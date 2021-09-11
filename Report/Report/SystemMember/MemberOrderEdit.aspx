@@ -37,10 +37,13 @@
         </div>
             <br />
         <div id="divButton" align="center">
+            <span style="color:red">
             <asp:Literal ID="ltlMsg" runat="server"></asp:Literal>
+            </span>
             <br />
-            <asp:Button ID="btnConfirm" runat="server" Text="確認取消訂單" OnClick="btnConfirm_Click"/>
+            <br />
+            <asp:Button ID="btnConfirm" runat="server" Text="確認取消訂單" OnClick="btnConfirm_Click" OnClientClick="return confirm('確定取消這筆訂單嗎?')" CssClass="btn btn-dark"/>
             &emsp;
-            <asp:Button ID="btnCancel" runat="server" Text="取消" OnClick="btnCancel_Click"/> 
+            <asp:Button ID="btnCancel" runat="server" Text="取消" OnClick="btnCancel_Click" CssClass="btn btn-dark"/> 
         </div>
 </asp:Content>

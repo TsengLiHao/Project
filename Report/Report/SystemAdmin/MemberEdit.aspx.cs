@@ -53,7 +53,8 @@ namespace Report.SystemAdmin
             MemberInfo memberInfo = new MemberInfo()
             {
                 MemberID = currentUser.MemberID,
-                MemberName = currentUser.MemberName,
+                Account = currentUser.Account,
+                MemberName = this.txtName.Text,
                 PWD = this.txtPWD.Text,
                 Email = this.txtEmail.Text,
                 MobilePhone = this.txtPhone.Text,
@@ -63,6 +64,24 @@ namespace Report.SystemAdmin
             if (string.IsNullOrEmpty(this.txtPWD.Text) || string.IsNullOrEmpty(this.txtEmail.Text) || string.IsNullOrEmpty(this.txtPhone.Text) || string.IsNullOrEmpty(this.txtAdress.Text))
             {
                 this.ltlMsg.Text = "輸入項目不能為空";
+                return;
+            }
+
+            if (this.txtName.Text.Length > 10)
+            {
+                this.ltlMsg.Text = "輸入的名稱過長,請重新輸入";
+                return;
+            }
+
+            if (!new System.Text.RegularExpressions.Regex("^[A-Za-z0-9]+$").IsMatch(this.txtPWD.Text))
+            {
+                this.ltlMsg.Text = "密碼須為英數字所組成";
+                return;
+            }
+
+            if (this.txtPhone.Text.Length != 10)
+            {
+                this.ltlMsg.Text = "手機號碼長度須為10碼";
                 return;
             }
 
@@ -82,16 +101,22 @@ namespace Report.SystemAdmin
 
             if (emailList.Contains(this.txtEmail.Text))
             {
-                this.ltlMsg.Text = "Email名稱已重複,請重新輸入";
-                return;
+                if (this.txtEmail.Text != currentUser.Email)
+                {
+                    this.ltlMsg.Text = "Email名稱已重複,請重新輸入";
+                    return;
+                }
             }
 
             var phoneList = MemberManager.GetMemberPhone();
 
             if (phoneList.Contains(this.txtPhone.Text))
             {
-                this.ltlMsg.Text = "手機號碼已重複,請重新輸入";
-                return;
+                if (this.txtPhone.Text != currentUser.MobilePhone)
+                {
+                    this.ltlMsg.Text = "手機號碼已重複,請重新輸入";
+                    return;
+                }
             }
 
             MemberManager.UpdateMember(memberInfo);

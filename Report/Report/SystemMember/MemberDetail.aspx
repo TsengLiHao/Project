@@ -17,7 +17,7 @@
         <br />
         <div id="divText" align="center">
             <asp:Label ID="Label1" runat="server" CssClass="lbl" Text="帳號:"></asp:Label>
-            <asp:TextBox ID="txtAccount" runat="server" CssClass="txt"></asp:TextBox><br />
+            <asp:TextBox ID="txtAccount" runat="server" CssClass="txt" Enabled="false"></asp:TextBox><br />
             <asp:Label ID="Label2" runat="server" CssClass="lbl" Text="姓名:"></asp:Label>
             <asp:TextBox ID="txtName" runat="server" CssClass="txt"></asp:TextBox><br />
             <asp:Label ID="Label3" runat="server" CssClass="lbl" Text="地址:"></asp:Label>
@@ -29,12 +29,15 @@
         </div>
             <br />
         <div id="divButton" align="center">
+            <span style="color:red">
             <asp:Literal ID="ltlMsg" runat="server"></asp:Literal>
+            </span>
             <br />
-            <asp:Button ID="btnConfirm" runat="server" Text="確認修改" OnClick="btnConfirm_Click"/>
+            <br />
+            <asp:Button ID="btnConfirm" runat="server" Text="確認修改" OnClick="btnConfirm_Click" CssClass="btn btn-dark"/>
             &emsp;
-            <asp:Button ID="btnChangePWD" runat="server" Text="變更密碼" OnClick="btnChangePWD_Click"/> 
+            <asp:Button ID="btnChangePWD" runat="server" Text="變更密碼" OnClick="btnChangePWD_Click" CssClass="btn btn-dark"/> 
             &emsp;
-            <asp:Button ID="btnCancel" runat="server" Text="取消" OnClick="btnCancel_Click" />
+            <asp:Button ID="btnCancel" runat="server" Text="取消" OnClick="btnCancel_Click" CssClass="btn btn-dark"/>
         </div>
 </asp:Content>

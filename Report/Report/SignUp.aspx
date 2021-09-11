@@ -27,6 +27,8 @@
             <asp:TextBox ID="txtEmail" runat="server" CssClass="txt" TextMode="Email"></asp:TextBox><br />
             <asp:Label ID="Label5" runat="server" CssClass="lbl" Text="帳號:"></asp:Label>
             <asp:TextBox ID="txtAccount" runat="server" CssClass="txt"></asp:TextBox><br />
+            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<asp:Label ID="Label8" runat="server" Text="帳號名稱創立後不可更改"></asp:Label><br />
+
             <asp:Label ID="Label6" runat="server" CssClass="lbl" Text="密碼:"></asp:Label>
             <asp:TextBox ID="txtPWD" runat="server" CssClass="txt" TextMode="Password"></asp:TextBox><br />
             <asp:Label ID="Label7" runat="server" CssClass="lbl" Text="密碼確認:"></asp:Label>
@@ -34,10 +36,12 @@
         </div>
             <br />
         <div id="divButton" align="center">
+            <span style="color: red">
             <asp:Literal ID="ltlMsg" runat="server"></asp:Literal>
+            </span>
             <br />
-            <asp:Button ID="btnConfirm" runat="server" Text="確認" OnClick="btnConfirm_Click"/>
+            <asp:Button ID="btnConfirm" runat="server" Text="確認" OnClick="btnConfirm_Click" CssClass="btn btn-dark"/>
             &emsp;
-            <asp:Button ID="btnClear" runat="server" Text="重新輸入" OnClick="btnClear_Click"/> 
+            <asp:Button ID="btnClear" runat="server" Text="重新輸入" OnClick="btnClear_Click" CssClass="btn btn-dark"/> 
         </div>
 </asp:Content>

@@ -51,6 +51,12 @@ namespace Report.SystemMember
                 return;
             }
 
+            if (!new System.Text.RegularExpressions.Regex("^[A-Za-z0-9]+$").IsMatch(this.txtNewPWD.Text))
+            {
+                this.ltlMsg.Text = "密碼須為英數字所組成";
+                return;
+            }
+
             if (string.Compare(this.txtPWD.Text, member.PWD, false) != 0)
             {
                 this.ltlMsg.Text = "請確認舊密碼是否輸入錯誤";

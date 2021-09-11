@@ -27,7 +27,11 @@ namespace Report.SystemAdmin
                     this.ucPager.TotalSize = allMemberList.Count;
                     this.ucPager.Bind();
                 }
-
+                else
+                {
+                    this.ucPager.Visible = false;
+                    return;
+                }
             }
             else
             {

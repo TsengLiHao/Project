@@ -31,7 +31,7 @@ namespace Report
 
         protected void ddlProduct_TextChanged(object sender, EventArgs e)
         {
-                this.ltlMsg.Text = "";
+            this.ltlMsg.Text = "";
             
             var productInfo = ProductManager.GetProductInfoByName(ddlProduct.SelectedValue);
 
@@ -45,7 +45,7 @@ namespace Report
 
                 this.HiddenField1.Value = productInfo.ProductID.ToString();
                 this.ltlPrice.Text = productInfo.UnitPrice.ToString();
-                this.ltlWeight.Text = $"{productInfo.WeightPerUnit} kg";
+                this.ltlWeight.Text = $"{productInfo.WeightPerUnit} g";
                 this.ltlFirst.Text = productInfo.ManufactureDate.ToShortDateString();
                 this.ltlLast.Text = productInfo.ExpirationDate.ToShortDateString();
                 this.TextBox1.Text = productInfo.Body;
@@ -53,13 +53,13 @@ namespace Report
 
                 TimeSpan day = productInfo.ExpirationDate.Subtract(DateTime.Today);
 
-                if (day.TotalDays < 14)
+                if (day.TotalDays <= 14)
                 {
                     productInfo.Discontinued = 0;
-                    StockManager.UpdateStockByExpiration();
+                    StockManager.UpdateStockByExpiration(ddlProduct.SelectedValue,stockInfo.CurrentQuantity);
                 }
 
-                if(DateTime.Today > productInfo.ExpirationDate)
+                if (DateTime.Today > productInfo.ExpirationDate)
                 {
                     stockInfo.ProductStatus = 0;
                 }
@@ -112,6 +112,12 @@ namespace Report
             }
 
             var productInfo = ProductManager.GetProductInfoByName(ddlProduct.SelectedValue);
+
+            if (productInfo == null)
+            {
+                this.ltlProductStatus.Text = "請選擇商品";
+                return;
+            }
 
             var stockInfo = StockManager.GetStockInfoByProductName(productInfo.ProductName);
 

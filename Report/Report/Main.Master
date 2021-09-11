@@ -52,6 +52,9 @@
             </asp:ContentPlaceHolder>
         </div>
         <div class="Login">
+            <span style="color:black">
+            <asp:Label ID="lblUser" runat="server"  Visible="false"></asp:Label>
+            </span>
             <asp:ImageButton ID="imgBtnLogin" runat="server" ImageUrl="image/login.png" Width="35" Height="35"  OnClick="imgBtnLogin_Click"/>
         </div>
     </form>

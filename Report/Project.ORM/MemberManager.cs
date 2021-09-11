@@ -209,6 +209,7 @@ namespace Project.ORM
 
                     if (dbObject != null)
                     {
+                        dbObject.Account = memberInfo.Account;
                         dbObject.MemberName = memberInfo.MemberName;
                         dbObject.Email = memberInfo.Email;
                         dbObject.MobilePhone = memberInfo.MobilePhone;

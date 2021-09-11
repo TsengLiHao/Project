@@ -42,9 +42,33 @@ namespace Report
                 return;
             }
 
+            if(this.txtName.Text.Length > 10)
+            {
+                this.ltlMsg.Text = "輸入的名稱過長,請重新輸入";
+                return;
+            }
+
+            if (this.txtAccount.Text.Length > 10)
+            {
+                this.ltlMsg.Text = "輸入的帳號長度過長,請重新輸入";
+                return;
+            }
+
             if (!new System.Text.RegularExpressions.Regex("^[A-Za-z0-9]+$").IsMatch(this.txtAccount.Text))
             {
                 this.ltlMsg.Text = "帳號須為英數字所組成";
+                return;
+            }
+
+            if (!new System.Text.RegularExpressions.Regex("^[A-Za-z0-9]+$").IsMatch(this.txtPWD.Text))
+            {
+                this.ltlMsg.Text = "密碼須為英數字所組成";
+                return;
+            }
+
+            if (this.txtPhone.Text.Length !=10)
+            {
+                this.ltlMsg.Text = "手機號碼長度須為10碼";
                 return;
             }
 
@@ -86,11 +110,14 @@ namespace Report
 
             MemberManager.CreateMember(memberInfo);
 
-            var member = MemberManager.GetMemberInfoByAccount(memberInfo.Account);
+            //var member = MemberManager.GetMemberInfoByAccount(memberInfo.Account);
 
-            this.Session["MemberInfo"] = member.Account;
+            //this.Session["MemberInfo"] = member.Account; 註冊成功後重新登錄
 
-            Response.Redirect("/SystemMember/Member.aspx");
+            Response.Write("<script>alert('註冊成功!! 請前往登入')</script>");
+
+            Response.Write("<script type='text/javascript'>location.href='/Login.aspx'</script>");
+           
         }
 
         protected void btnClear_Click(object sender, EventArgs e)

@@ -1,4 +1,5 @@
-﻿using Project.ORM.DBModels;
+﻿using Project.ORM;
+using Project.ORM.DBModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +24,7 @@ namespace Report.SystemStock
         {
             string currentText = this.txtCurrent.Text;
             string orderedText = this.txtOrdered.Text;
-            string statusText = this.txtStatus.Text;
+            string statusText = this.ddlStatus.SelectedValue;
 
             int currentQuantity = Convert.ToInt32(currentText);
             int orderedQuantity = Convert.ToInt32(orderedText);
@@ -37,17 +38,15 @@ namespace Report.SystemStock
                 ProductStatus = productStatus
             };
 
-            if (Convert.ToInt32(this.txtStatus.Text) < 0 || Convert.ToInt32(this.txtStatus.Text) > 1)
-            {
-                this.ltlMsg.Text = "商品狀態請輸入整數 0 或 1";
-                return;
-            }
-
-            if (string.IsNullOrEmpty(this.txtName.Text) || string.IsNullOrEmpty(this.txtCurrent.Text) || string.IsNullOrEmpty(this.txtOrdered.Text) || string.IsNullOrEmpty(this.txtStatus.Text))
+            if (string.IsNullOrEmpty(this.txtName.Text) || string.IsNullOrEmpty(this.txtCurrent.Text) || string.IsNullOrEmpty(this.txtOrdered.Text))
             {
                 this.ltlMsg.Text = "輸入項目不可為空";
                 return;
             }
+
+            StockManager.CreateProduct(stockInfo);
+
+            Response.Redirect("/SystemStock/StockList.aspx");
 
         }
 

@@ -29,7 +29,8 @@ namespace Report.SystemAdmin
                 }
                 else
                 {
-                    this.ltlMsg.Text = "No Record";
+                    this.ucPager.Visible = false;
+                    this.ltlMsg.Text = "沒有訂單紀錄";
                     return;
                 }
             }

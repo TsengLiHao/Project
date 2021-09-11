@@ -44,6 +44,6 @@
     </div>
     <br />
         <div align="center">
-            <asp:Button ID="btnBack" runat="server" Text="返回" OnClick="btnBack_Click"/>
+            <asp:Button ID="btnBack" runat="server" Text="回首頁" OnClick="btnBack_Click" CssClass="btn btn-dark"/>
         </div>
 </asp:Content>

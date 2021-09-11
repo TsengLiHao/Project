@@ -42,6 +42,7 @@ namespace Report.SystemMember
             MemberInfo memberInfo = new MemberInfo()
             {
                 MemberID = member.MemberID,
+                Account = this.txtAccount.Text,
                 MemberName = this.txtName.Text,
                 Email = this.txtEmail.Text,
                 MobilePhone = this.txtPhone.Text,
@@ -50,13 +51,47 @@ namespace Report.SystemMember
             };
             MemberManager.UpdateMember(memberInfo);
 
-            if (string.IsNullOrEmpty(this.txtName.Text) || string.IsNullOrEmpty(this.txtEmail.Text) || string.IsNullOrEmpty(this.txtPhone.Text) || string.IsNullOrEmpty(this.txtAdress.Text))
+            if (string.IsNullOrEmpty(this.txtAccount.Text) || string.IsNullOrEmpty(this.txtName.Text) || string.IsNullOrEmpty(this.txtEmail.Text) || string.IsNullOrEmpty(this.txtPhone.Text) || string.IsNullOrEmpty(this.txtAdress.Text))
             {
                 this.ltlMsg.Text = "輸入項目不能為空";
                 return;
             }
 
-            Response.Redirect("/SystemMember/Member.aspx");
+            if (this.txtName.Text.Length > 10)
+            {
+                this.ltlMsg.Text = "輸入的名稱過長,請重新輸入";
+                return;
+            }
+
+            if (this.txtPhone.Text.Length != 10)
+            {
+                this.ltlMsg.Text = "手機號碼長度須為10碼";
+                return;
+            }
+
+            var emailList = MemberManager.GetMemberEmail();
+
+            if (emailList.Contains(this.txtEmail.Text))
+            {
+                if (this.txtEmail.Text != member.Email)
+                {
+                    this.ltlMsg.Text = "Email名稱已重複,請重新輸入";
+                    return;
+                }
+            }
+
+            var phoneList = MemberManager.GetMemberPhone();
+
+            if (phoneList.Contains(this.txtPhone.Text))
+            {
+                if (this.txtPhone.Text != member.MobilePhone)
+                {
+                    this.ltlMsg.Text = "手機號碼已重複,請重新輸入";
+                    return;
+                }
+            }
+
+            Response.Redirect("/Default.aspx");
         }
 
         protected void btnChangePWD_Click(object sender, EventArgs e)

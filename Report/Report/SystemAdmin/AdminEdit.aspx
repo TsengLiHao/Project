@@ -13,11 +13,11 @@
         }
     </style>
     
-        <h1 align="center">Edit Information Of Member</h1>
+        <h1 align="center">Edit Information Of Admin</h1>
         <br />
         <div id="divText" align="center">
             <asp:Label ID="Label1" runat="server" CssClass="lbl" Text="帳號:"></asp:Label>
-            <asp:TextBox ID="txtAccount" runat="server" CssClass="txt"></asp:TextBox>
+            <asp:TextBox ID="txtAccount" runat="server" CssClass="txt" Enabled="false"></asp:TextBox>
             <br />
             <asp:Label ID="Label2" runat="server" CssClass="lbl" Text="姓名:"></asp:Label>
             <asp:TextBox ID="txtName" runat="server" CssClass="txt"></asp:TextBox>
@@ -31,10 +31,13 @@
         </div>
             <br />
         <div id="divButton" align="center">
+            <span style="color:red">
             <asp:Literal ID="ltlMsg" runat="server"></asp:Literal>
+            </span>
             <br />
-            <asp:Button ID="btnConfirm" runat="server" Text="確認修改" OnClick="btnConfirm_Click"/>
+            <br />
+            <asp:Button ID="btnConfirm" runat="server" Text="確認修改" OnClick="btnConfirm_Click" CssClass="btn btn-dark"/>
             &emsp;
-            <asp:Button ID="btnCancel" runat="server" Text="取消" OnClick="btnCancel_Click"/> 
+            <asp:Button ID="btnCancel" runat="server" Text="取消" OnClick="btnCancel_Click" CssClass="btn btn-dark"/> 
         </div>
 </asp:Content>

@@ -3,6 +3,8 @@ using Project.ORM.DBModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -60,11 +62,44 @@ namespace Report.SystemMember
                 return;
             }
 
-        }
+            Response.Write("<script>alert('請前往信箱確認郵件')</script>");
 
+            Email($"<h3>Password is {memberInfo.PWD}.<h3>");
+            
+            Response.Write("<script type='text/javascript'>location.href='Login.aspx'</script>");
+        }
+        
         protected void btnCancel_Click(object sender, EventArgs e)
         {
             Response.Redirect("/Default.aspx");
+        }
+
+        public void Email(string htmlString)
+        {
+            var account = MemberManager.GetMemberInfoAccount(this.txtAccount.Text);
+            var memberInfo = MemberManager.GetMemberInfoByAccount(account);
+            try
+            {
+                MailMessage message = new MailMessage();
+                SmtpClient smtp = new SmtpClient();
+                message.From = new MailAddress("x95175399@gmail.com");
+                message.To.Add(new MailAddress($"{memberInfo.Email}"));
+                message.Subject = "Send PWD Mail";
+                message.IsBodyHtml = true; //to make message body as html  
+                message.Body = htmlString;
+                smtp.Port = 587;
+                smtp.Host = "smtp.gmail.com"; //for gmail host  
+                smtp.EnableSsl = true;
+                smtp.UseDefaultCredentials = false;
+                smtp.Credentials = new NetworkCredential("x95175399@gmail.com", "jj895589");
+                smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+                smtp.Send(message);
+            }
+            catch (Exception ex)
+            {
+                Logger.WriteLog(ex);
+                return;
+            }
         }
     }
 }

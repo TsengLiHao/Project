@@ -24,15 +24,15 @@
         </div>
        
          <div id="divButton" align="center">
-        <asp:Literal ID="ltlMsg" runat="server"></asp:Literal>
+            <span style="color: red">
+            <asp:Literal ID="ltlMsg" runat="server"></asp:Literal>
+            </span>
         <br />
-        <asp:Button ID="btnLogin" runat="server" Text="會員登入" OnClick="btnLogin_Click" />
+        <asp:Button ID="btnLogin" runat="server" Text="登入" OnClick="btnLogin_Click" CssClass="btn btn-dark"/>
         &emsp;
-        <asp:Button ID="btnAdmin" runat="server" Text="管理者登入" OnClick="btnAdmin_Click" />
+        <asp:Button ID="btnSignUp" runat="server" Text="註冊" OnClick="btnSignUp_Click" CssClass="btn btn-dark"/>
         &emsp;
-        <asp:Button ID="btnSignUp" runat="server" Text="註冊" OnClick="btnSignUp_Click"/>
-        &emsp;
-        <asp:Button ID="btnForgetPWD" runat="server" Text="忘記密碼" OnClick="btnForgetPWD_Click" />
+        <asp:Button ID="btnForgetPWD" runat="server" Text="忘記密碼" OnClick="btnForgetPWD_Click" CssClass="btn btn-dark"/>
        
         
     </div>

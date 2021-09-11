@@ -42,6 +42,7 @@ namespace Report.SystemAdmin
                 AdminAccount = this.txtAccount.Text,
                 AdminName = this.txtName.Text,
                 AdminPWD = this.txtPWD.Text
+                
             };
 
             if(string.IsNullOrEmpty(this.txtAccount.Text) || string.IsNullOrEmpty(this.txtName.Text) || string.IsNullOrEmpty(this.txtPWD.Text) || string.IsNullOrEmpty(this.txtDoubleCheck.Text))
@@ -69,7 +70,7 @@ namespace Report.SystemAdmin
 
         protected void btnCancel_Click(object sender, EventArgs e)
         {
-            Response.Redirect("/SystemAdmin/AdminEdit.aspx");
+            Response.Redirect("/SystemAdmin/Admin.aspx");
         }
     }
 }

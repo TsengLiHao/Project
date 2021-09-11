@@ -29,8 +29,10 @@
             </asp:GridView>
         <br />
         <div align="center">
-            <asp:Button ID="btnEdit" runat="server" Text="新增管理者名稱" OnClick="btnEdit_Click"/>
-            &emsp;
-            <asp:Button ID="btnLogout" runat="server" Text="登出" OnClick="btnLogout_Click" />
+            <span style="color:red">
+            <asp:Literal ID="ltlMsg" runat="server"></asp:Literal>
+            </span>
+            <br /><br />
+            <asp:Button ID="btnLogout" runat="server" Text="登出" OnClick="btnLogout_Click" CssClass="btn btn-dark"/>
         </div>
 </asp:Content>
