@@ -65,6 +65,25 @@ namespace Report.SystemStock
                 ChangedDate = DateTime.Now
             };
 
+            if(currentQuantity < 0 || expirationQuantity < 0)
+            {
+                this.ltlMsg.Text = "輸入數量不可小於0";
+                return;
+            }
+
+            var getExDay = StockManager.GetExDay();
+            if (getExDay != null)
+            {
+                var targetStockInfo = StockManager.GetStockInfoByProductName(getExDay.ProductName);
+                var currentStockID = Request.QueryString["StockID"];
+                if(targetStockInfo.StockID == Convert.ToInt32(currentStockID))
+                {
+                    this.ltlMsg.Text = "請先將販賣商品修正為非即期品再進行數量修改";
+                    return;
+                }
+
+            }
+
             StockManager.UpdateStockInfo(stockInfo);
 
             Response.Redirect("/SystemStock/StockList.aspx");

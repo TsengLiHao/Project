@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project.ORM;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -17,6 +18,18 @@ namespace Report
                 this.btnOrderList.Visible = true;
                 this.btnEditProduct.Visible = true;
                 this.btnStock.Visible = true;
+            }
+
+            var getExDay = StockManager.GetExDay();
+            if (getExDay != null)
+            {
+                var stockInfo = StockManager.GetStockInfoByProductName(getExDay.ProductName);
+
+                stockInfo.ExpirationQuantity += stockInfo.CurrentQuantity;
+                stockInfo.CurrentQuantity = 0;
+                stockInfo.ProductStatus = 0;
+
+                StockManager.UpdateStockInfo(stockInfo);
             }
         }
         protected void btnMemberInfo_Click(object sender, EventArgs e)

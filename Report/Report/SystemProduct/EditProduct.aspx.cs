@@ -47,6 +47,12 @@ namespace Report.SystemAdmin
                 return;
             }
 
+            if (!new System.Text.RegularExpressions.Regex("^[0-9]+(.[0-9]{2})?$").IsMatch(this.txtWeight.Text))
+            {
+                this.ltlMsg.Text = "重量須為數字所組成";
+                return;
+            }
+
             string productIDText = Request.QueryString["ProductID"];
             string priceText = this.txtPrice.Text;
             string weightText = this.txtWeight.Text;
@@ -80,7 +86,7 @@ namespace Report.SystemAdmin
                 return;
             }
 
-            if (firstDate > DateTime.Today)
+            if (firstDate > DateTime.Today || DateTime.Today > lastDate)
             {
                 this.ltlMsg.Text = "輸入的製造日期不合理";
                 return;
@@ -94,7 +100,7 @@ namespace Report.SystemAdmin
             }
 
             TimeSpan day2 = lastDate.Subtract(DateTime.Today);
-            if (day.TotalDays <= 14)
+            if (day2.TotalDays <= 14)
             {
                 this.ltlMsg.Text = "輸入的日期時間範圍過小";
                 return;

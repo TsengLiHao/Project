@@ -44,6 +44,12 @@ namespace Report.SystemStock
                 return;
             }
 
+            if (currentQuantity < 0 || orderedQuantity < 0)
+            {
+                this.ltlMsg.Text = "輸入數量不可小於0";
+                return;
+            }
+
             StockManager.CreateProduct(stockInfo);
 
             Response.Redirect("/SystemStock/StockList.aspx");

@@ -13,27 +13,19 @@ namespace Report.SystemStock
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(this.Session["AdminInfo"] == null)
+            if (!IsPostBack)
             {
-                Response.Redirect("/Login.aspx");
-                return;
+                if (this.Session["AdminInfo"] == null)
+                {
+                    Response.Redirect("/Login.aspx");
+                    return;
+                }
+
+                var stockList = StockManager.GetStockList();
+
+                gvStockList.DataSource = stockList;
+                gvStockList.DataBind();
             }
-
-            var stockList = StockManager.GetStockList();
-
-            gvStockList.DataSource = stockList;
-            gvStockList.DataBind();
-
-            //Product productInfo = new Product();
-            //Stock stockInfo = new Stock();
-
-            //TimeSpan day = productInfo.ExpirationDate.Subtract(DateTime.Today);
-
-            //if (day.TotalDays < 14)
-            //{
-            //    stockInfo.CurrentQuantity = 0;
-            //    stockInfo.ExpirationQuantity += stockInfo.CurrentQuantity;
-            //}
         }
 
         protected void btnEdit_Click(object sender, EventArgs e)

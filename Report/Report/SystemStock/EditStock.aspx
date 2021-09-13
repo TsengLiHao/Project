@@ -22,7 +22,7 @@
             <asp:TextBox ID="txtCurrentValue" runat="server" CssClass="txt" TextMode="Number"></asp:TextBox><br />
             <asp:Label ID="Label3" runat="server" CssClass="lbl" Text="已訂購商品數:"></asp:Label>
             <asp:TextBox ID="txtOrderedValue" runat="server" CssClass="txt" TextMode="Number" Enabled="false"></asp:TextBox><br />
-            <asp:Label ID="Label5" runat="server" CssClass="lbl" Text="已過期商品數:"></asp:Label>
+            <asp:Label ID="Label5" runat="server" CssClass="lbl" Text="即期商品數:"></asp:Label>
             <asp:TextBox ID="txtExpirationValue" runat="server" CssClass="txt" TextMode="Number"></asp:TextBox><br />
             <asp:Label ID="Label4" runat="server" CssClass="lbl" Text="商品狀態:"></asp:Label>
             <asp:DropDownList ID="ddlStatus" runat="server" Width="120">

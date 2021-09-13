@@ -21,18 +21,22 @@ namespace Report
                 ddlProduct.DataTextField = "ProductName";
                 ddlProduct.DataBind();
                 ddlProduct.Items.Insert(0, new ListItem("--Select Product--"));
+                this.ddlProduct.Items[0].Attributes["disabled"] = "disabled";
 
                 if (this.Session["AdminInfo"] != null)
                 {
                     this.btnConfirm.Visible = false;
                 }
+
+                this.Image1.ImageUrl = "/Image/No_Image.png";
             }
         }
 
         protected void ddlProduct_TextChanged(object sender, EventArgs e)
         {
             this.ltlMsg.Text = "";
-            
+            this.ddlProduct.Items[0].Attributes["disabled"] = "disabled";
+
             var productInfo = ProductManager.GetProductInfoByName(ddlProduct.SelectedValue);
 
             var stockInfo = StockManager.GetStockInfoByProductName(ddlProduct.SelectedValue);
@@ -56,12 +60,15 @@ namespace Report
                 if (day.TotalDays <= 14)
                 {
                     productInfo.Discontinued = 0;
-                    StockManager.UpdateStockByExpiration(ddlProduct.SelectedValue,stockInfo.CurrentQuantity);
+                    ProductManager.UpdateProduct(productInfo);
+                    
+                    StockManager.UpdateStockByExpiration(ddlProduct.SelectedValue, stockInfo.CurrentQuantity);
                 }
 
                 if (DateTime.Today > productInfo.ExpirationDate)
                 {
                     stockInfo.ProductStatus = 0;
+                    StockManager.UpdateStockInfo(stockInfo);
                 }
 
                 if(stockInfo.CurrentQuantity <= 5)

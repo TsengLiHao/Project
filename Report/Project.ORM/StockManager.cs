@@ -1,6 +1,7 @@
 ﻿using Project.ORM.DBModels;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -285,6 +286,29 @@ namespace Project.ORM
             {
                 Logger.WriteLog(ex);
                 return false;
+            }
+        }
+
+        public static Product GetExDay()
+        {
+            try
+            {
+                using (ContextModel context = new ContextModel())
+                {
+                    var query =
+                        (from item in context.Products
+                         where DateTime.Today >= DbFunctions.AddDays(item.ExpirationDate,-14) 
+                         select item);
+
+                    var Object = query.FirstOrDefault();
+                    return Object;
+                    
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.WriteLog(ex);
+                return null;
             }
         }
 

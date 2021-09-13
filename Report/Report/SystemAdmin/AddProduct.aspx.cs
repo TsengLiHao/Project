@@ -30,6 +30,12 @@ namespace Report.SystemAdmin
                 return;
             }
 
+            if (!new System.Text.RegularExpressions.Regex("^[0-9]+(.[0-9]{2})?$").IsMatch(this.txtWeight.Text))
+            {
+                this.ltlMsg.Text = "重量須為數字所組成";
+                return;
+            }
+
             string priceText = this.txtPrice.Text;
             string weightText = this.txtWeight.Text;
             string firstText = this.txtFirstDate.Text;
@@ -64,7 +70,7 @@ namespace Report.SystemAdmin
                 newProduct.Photo = saveFileName;
             }
 
-            if(price < 0 || weight < 0 )
+            if (price < 0 || weight < 0 )
             {
                 this.ltlMsg.Text = "價錢或重量不可小於0";
                 return;
@@ -84,7 +90,7 @@ namespace Report.SystemAdmin
             }
 
             TimeSpan day2 = lastDate.Subtract(DateTime.Today);
-            if (day.TotalDays <= 14)
+            if (day2.TotalDays <= 14)
             {
                 this.ltlMsg.Text = "輸入的日期時間範圍過小";
                 return;
