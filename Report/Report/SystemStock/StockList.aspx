@@ -35,6 +35,6 @@
             <br />
             <asp:Button ID="btnEdit" runat="server" Text="新增庫存商品" OnClick="btnEdit_Click" CssClass="btn btn-dark"/>
             &emsp;
-            <asp:Button ID="btnLogout" runat="server" Text="回首頁" OnClick="btnLogout_Click" CssClass="btn btn-dark"/>
+            <asp:Button ID="btnCancel" runat="server" Text="回首頁" OnClick="btnCancel_Click" CssClass="btn btn-dark"/>
         </div>
 </asp:Content>

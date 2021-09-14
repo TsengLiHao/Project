@@ -33,7 +33,7 @@ namespace Report.SystemStock
             Response.Redirect("/SystemStock/AddStock.aspx");
         }
 
-        protected void btnLogout_Click(object sender, EventArgs e)
+        protected void btnCancel_Click(object sender, EventArgs e)
         {
             Response.Redirect("/Default.aspx");
         }

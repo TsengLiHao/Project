@@ -14,7 +14,7 @@
         }
     </style>
     
-        <h1 align="center">Cancel Order</h1>
+        <h1 align="center">Edit Order</h1>
     <asp:HiddenField ID="HiddenField1" runat="server" />
         <br />
         <div id="divText" align="center">

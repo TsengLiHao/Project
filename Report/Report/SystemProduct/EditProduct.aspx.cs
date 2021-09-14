@@ -47,7 +47,7 @@ namespace Report.SystemAdmin
                 return;
             }
 
-            if (!new System.Text.RegularExpressions.Regex("^[0-9]+(.[0-9]{2})?$").IsMatch(this.txtWeight.Text))
+            if (!new System.Text.RegularExpressions.Regex("^[0-9]+(.[0-9]{1,3})?$").IsMatch(this.txtWeight.Text))
             {
                 this.ltlMsg.Text = "重量須為數字所組成";
                 return;
@@ -113,6 +113,13 @@ namespace Report.SystemAdmin
                 this.fileUpload.SaveAs(filePath);
 
                 productUpdate.Photo = saveFileName;
+            }
+
+            var stockInfo = StockManager.GetStockInfoByProductName(this.txtName.Text);
+            if (stockInfo == null)
+            {
+                this.ltlMsg.Text = "此商品並無庫存";
+                return;
             }
 
             ProductManager.UpdateProduct(productUpdate);

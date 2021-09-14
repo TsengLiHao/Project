@@ -13,7 +13,7 @@
         }
     </style>
     
-        <h1 align="center">Add Product</h1>
+        <h1 align="center">Add Stock</h1>
         <br />
         <div id="divText" align="center">
             <asp:Label ID="Label1" runat="server" CssClass="lbl" Text="商品名稱:"></asp:Label>
